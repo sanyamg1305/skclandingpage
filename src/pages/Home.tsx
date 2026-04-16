@@ -7,6 +7,7 @@ import {
   Target, Zap, RefreshCw, Shield
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import NumberedPillars from '../components/ui/NumberedPillars';
 
 export default function Home() {
   const stats = [
@@ -88,7 +89,8 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 4. SPECIALLY DESIGNED FOR */}
+
+    {/* 4. SPECIALLY DESIGNED FOR */}
       <Section className="bg-gray-50 !py-32">
         <div className="flex flex-col lg:flex-row gap-20">
           <div className="lg:w-1/2">
@@ -107,73 +109,257 @@ export default function Home() {
           </div>
         </div>
       </Section>
+      {/* 5. INSIDE THE PROGRAM - REDESIGNED SPLIT-VIEW */}
+      <section className="bg-[#282828] py-32 relative overflow-hidden">
+        <div className="max-w-[1600px] mx-auto px-4 lg:px-20 relative">
+          
+          {/* Header Container - Positioned Top Right */}
+          <div className="flex justify-end mb-24">
+             <motion.h2 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tighter leading-none text-right"
+             >
+                Inside The <br />Program
+             </motion.h2>
+          </div>
 
-      {/* 5. WHAT SHIFTS - 2x2 Grid + Large Image with Border Offset */}
+          <div className="flex flex-col lg:flex-row items-stretch relative">
+             {/* Left Image Side */}
+             <div className="lg:w-[45%] relative z-10">
+                <div className="relative rounded-[4rem] overflow-hidden h-full min-h-[500px] lg:min-h-[700px] shadow-2xl">
+                   <img 
+                     src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/uaRdMpdyJe.png" 
+                     alt="Inside the program" 
+                     className="w-full h-full object-cover" 
+                   />
+                   <div className="absolute inset-0 bg-black/20"></div>
+                </div>
+                
+                {/* Horizontal Navigation Control (Over Image) */}
+                <div className="absolute top-1/2 left-10 -translate-y-1/2 z-30 w-16 h-16 rounded-full border border-white/30 bg-black/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-pointer">
+                   <ArrowLeft size={32} />
+                </div>
+             </div>
+
+             {/* Right Content Cards Side */}
+             <div className="lg:w-[65%] flex flex-col md:flex-row gap-10 items-stretch lg:-ml-32 pt-20 lg:pt-0 relative z-20">
+                {/* Mentoring Card - Coral */}
+                <motion.div 
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="bg-[#db644d] p-12 md:p-16 rounded-[4rem] shadow-2xl flex-1 flex flex-col justify-center hover:scale-[1.02] transition-transform duration-500"
+                >
+                   <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">Mentoring</h3>
+                   <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-medium">
+                      Grounded guidance drawn from experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.
+                   </p>
+                </motion.div>
+
+                {/* Coaching Card - Dark/Transparent with Border */}
+                <motion.div 
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="bg-[#282828] border-2 border-white/10 p-12 md:p-16 rounded-[4rem] shadow-2xl flex-1 flex flex-col justify-center hover:scale-[1.02] transition-transform duration-500"
+                >
+                   <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">Coaching</h3>
+                   <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-medium">
+                      Turning clarity into action. Coaching aligns intent with measurable results through structured guidance and consistent support.
+                   </p>
+                </motion.div>
+                
+                {/* Right Arrow Control (Attached to right of cards) */}
+                <div className="absolute top-1/2 -right-8 -translate-y-1/2 z-30 w-16 h-16 rounded-full border border-white/30 bg-black/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-pointer hidden md:flex">
+                   <ArrowRight size={32} />
+                </div>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. CEP IS RIGHT FOR YOU */}
       <Section dark className="bg-[#282828] !py-32">
         <div className="flex flex-col lg:flex-row gap-20 items-center">
-           <div className="lg:w-1/2">
-              <h2 className="text-5xl md:text-7xl font-bold text-white mb-16 tracking-tighter leading-[0.9]">
-                What Shifts When You <br />Go Through CEP
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                 {[
-                   { t: 'Deep Immersive Learning', d: 'Four 3-day sessions focused on real breakthroughs.', i: <BookOpen size={24} /> },
-                   { t: 'Inner Clarity & Steadiness', d: 'Practices to strengthen decision confidence.', i: <Zap size={24} /> },
-                   { t: 'One-on-One Support', d: 'Coaching tailored to your business challenges.', i: <Users size={24} /> },
-                   { t: 'Lifelong Peer Community', d: 'Stay connected with humans who understand.', i: <RefreshCw size={24} /> }
-                 ].map((card, i) => (
-                   <div key={i} className="bg-[#db644d] p-10 rounded-[3rem] shadow-xl text-white">
-                      <div className="mb-6 opacity-80">{card.i}</div>
-                      <h4 className="text-2xl font-bold mb-4">{card.t}</h4>
-                      <p className="text-lg text-white/80 leading-relaxed font-medium">{card.d}</p>
-                   </div>
-                 ))}
-              </div>
-           </div>
-           <div className="lg:w-1/2 relative pt-12 pr-12 mt-20 lg:mt-0">
-              <div className="absolute top-0 right-0 w-full h-full border-4 border-[#db644d] rounded-[4rem] translate-x-12 translate-y-12"></div>
-              <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/dd8bUjO8Fj.png" alt="Transformation" className="relative rounded-[4rem] w-full h-auto shadow-2xl" />
-           </div>
+          <div className="lg:w-1/2">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-7xl font-bold text-white mb-16 tracking-tighter leading-[0.9]"
+            >
+              CEP Is Right for You If This <br />Feels Familiar
+            </motion.h2>
+            
+            <NumberedPillars />
+
+            <div className="flex flex-col sm:flex-row gap-6 mt-20">
+              <Link to="/contact" className="bg-white text-[#01162c] px-12 py-5 rounded-full font-bold text-xl hover:bg-[#f26045] hover:text-white transition-all text-center">
+                Apply Now
+              </Link>
+              <Link to="/contact" className="bg-[#f26045] text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-white hover:text-[#01162c] transition-all text-center">
+                Contact Us
+              </Link>
+            </div>
+          </div>
+          <div className="lg:w-1/2 relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <img 
+                src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/SMDzAwOLT1.png" 
+                alt="CEP Candidate" 
+                className="rounded-[4rem] w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl" 
+              />
+            </motion.div>
+          </div>
         </div>
       </Section>
 
-      {/* 6. INSIDE THE PROGRAM - STABLE SPLIT-VIEW */}
-      <section className="bg-[#282828] overflow-hidden min-h-[900px] flex items-center py-20">
-        <div className="max-w-[1920px] mx-auto w-full flex flex-col lg:flex-row gap-0">
-           {/* Left Image Side */}
-           <div className="lg:w-1/2 relative min-h-[500px] lg:min-h-[800px]">
-              <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/uaRdMpdyJe.png" alt="Inside the program" className="absolute inset-0 w-full h-full object-cover rounded-r-[5rem]" />
-              <div className="absolute inset-0 bg-black/30 rounded-r-[5rem]"></div>
-              <div className="absolute top-1/2 left-20 -translate-y-1/2 w-16 h-16 rounded-full border-2 border-white/50 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-pointer">
-                 <ArrowLeft size={32} />
-              </div>
-           </div>
-           
-           {/* Right Content Side */}
-           <div className="lg:w-1/2 p-12 md:p-32 flex flex-col justify-center relative bg-[#282828]">
-              <h2 className="text-6xl md:text-8xl font-bold text-white mb-20 tracking-tighter leading-none self-end text-right">
-                Inside The <br />Program
-              </h2>
-              <div className="space-y-12 max-w-2xl self-end">
-                 <div className="bg-[#db644d] p-12 md:p-16 rounded-[4rem] shadow-2xl relative lg:-translate-x-32 z-10 transition-transform hover:scale-105 duration-500">
-                    <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">Mentoring</h3>
-                    <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-medium">
-                       Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment.
+      {/* 7. WHAT YOU GRADUATE WITH AS A LEADER */}
+      <Section className="bg-white !py-32">
+        <div className="max-w-[1290px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-24"
+          >
+            <img 
+              src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/nXpKzJgFSs.png" 
+              alt="Program Graduates" 
+              className="w-full h-auto rounded-[3rem] shadow-2xl"
+            />
+          </motion.div>
+
+          <div className="flex flex-col lg:flex-row gap-20">
+            <div className="lg:w-1/3">
+              <motion.h2 
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="text-5xl font-bold text-[#01162c] leading-[1.1] tracking-tight"
+              >
+                What You Graduate With <br />as a Leader
+              </motion.h2>
+            </div>
+            <div className="lg:w-2/3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {[
+                  {
+                    title: "Empowered Teams",
+                    desc: "Your team makes confident decisions without waiting for your approval, allowing work to move faster.",
+                    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/wiO86Vwy4N.png"
+                  },
+                  {
+                    title: "Clear Authority",
+                    desc: "Everyone knows their role, decision-making authority, and accountability, reducing confusion and delays.",
+                    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/XnUwUFDjfx.png"
+                  },
+                  {
+                    title: "Leadership Presence",
+                    desc: "You show up as a grounded, intentional leader who steadies the organisation in moments of pressure and uncertainty.",
+                    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/AJDmQZSb1U.png"
+                  },
+                  {
+                    title: "Scalable Systems",
+                    desc: "Your organisation moves forward without requiring your constant involvement, freeing you to focus on direction and growth.",
+                    icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/fk7T05auwG.png"
+                  }
+                ].map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="p-10 bg-white rounded-[2rem] shadow-[0_5px_30px_0_rgba(39,35,74,0.1)] hover:shadow-2xl transition-all border border-gray-50 flex flex-col gap-6"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 shrink-0">
+                        <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-black">{item.title}</h3>
+                    </div>
+                    <p className="text-lg text-[#01162c]/70 leading-relaxed">
+                      {item.desc}
                     </p>
-                 </div>
-                 <div className="bg-[#db644d] p-12 md:p-16 rounded-[4rem] shadow-2xl transition-transform hover:scale-105 duration-500">
-                    <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">Coaching</h3>
-                    <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-medium">
-                       Turning clarity into action. Coaching aligns intent with measurable results through structured guidance and consistent support.
-                    </p>
-                 </div>
+                  </motion.div>
+                ))}
               </div>
-              <div className="absolute top-1/2 right-20 -translate-y-1/2 w-16 h-16 rounded-full border-2 border-white/50 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-pointer">
-                 <ArrowRight size={32} />
-              </div>
-           </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </Section>
+
+      {/* 8. ORGANISATIONAL SHIFTS */}
+      <div className="relative overflow-hidden bg-white">
+        <div className="flex flex-col lg:flex-row min-h-[600px]">
+          <div className="lg:w-3/5 bg-[#db644d] py-24 px-8 md:px-24 flex flex-col justify-center gap-12 text-white">
+            <div className="space-y-4">
+              <motion.h2 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-5xl md:text-6xl font-bold"
+              >
+                Organisational Shifts
+              </motion.h2>
+              <p className="text-xl md:text-2xl opacity-90">A transformational change in your leadership abilities.</p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8">
+              {[
+                { text: "Distributed Leadership Ownership", icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/hqhrR4ne1m.png" },
+                { text: "Clear Accountability Across Teams", icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/4yBnPnYkFk.png" },
+                { text: "Authority That Creates Stability", icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/62FsdoRYYy.png" },
+                { text: "Structure That Enables Sustainable Scale", icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/dk9DH603U2.png" }
+              ].map((point, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="flex items-center gap-6"
+                >
+                  <div className="w-12 h-12 shrink-0">
+                    <img src={point.icon} alt={point.text} className="w-full h-full object-contain brightness-0 invert" />
+                  </div>
+                  <span className="text-2xl md:text-3xl font-medium leading-tight">
+                    {point.text}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="mt-8"
+            >
+              <Link to="/contact" className="bg-white text-black px-12 py-5 rounded-full font-bold text-xl hover:bg-black hover:text-white transition-all inline-block">
+                Apply Now
+              </Link>
+            </motion.div>
+          </div>
+          <div className="lg:w-2/5 relative min-h-[400px]">
+            <img 
+              src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/dd8bUjO8Fj.png" 
+              alt="Leader" 
+              className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+            />
+          </div>
+        </div>
+      </div>
 
       {/* 7. MEET THE COACHES */}
       <Section className="bg-white !py-32">
