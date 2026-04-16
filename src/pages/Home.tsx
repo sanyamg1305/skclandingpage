@@ -243,30 +243,33 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 11. EVENT GALLERY - CORAL THEME */}
-      <Section className="bg-[#db644d] !py-40 overflow-hidden relative">
+      {/* 11. EVENT GALLERY - REFINED DESIGN */}
+      <Section className="bg-[#db644d] !py-32 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-center mb-24 text-white text-7xl md:text-9xl font-bold tracking-tighter">
-             <h2>Event Gallery</h2>
+          <div className="text-center mb-20 text-white">
+             <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">Event Gallery</h2>
+             <p className="text-white/80 text-xl max-w-2xl mx-auto leading-relaxed font-medium">
+                A curated collection of moments from our past cohorts, immersive workshops, and transformative learning experiences.
+             </p>
           </div>
           
-          <div className="relative group">
-             <button className="absolute -left-12 lg:-left-24 top-1/2 -translate-y-1/2 z-20 w-20 h-20 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-white hover:text-[#db644d] transition-all">
-                <ArrowLeft size={40} />
+          <div className="relative group px-12">
+             <button className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white hover:bg-white hover:text-[#db644d] transition-all">
+                <ArrowLeft size={24} />
              </button>
-             <button className="absolute -right-12 lg:-right-24 top-1/2 -translate-y-1/2 z-20 w-20 h-20 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-white hover:text-[#db644d] transition-all">
-                <ArrowRight size={40} />
+             <button className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/50 flex items-center justify-center text-white hover:bg-white hover:text-[#db644d] transition-all">
+                <ArrowRight size={24} />
              </button>
-
-             <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+ 
+             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                 {['KEa1R2q9Oe', 'Nm1MLGKF3A', 'aX2JGytTv3', 'eTMHXoGtkJ', '5dGtP4QHLh', 'QKq988ujHM'].map((img, i) => (
-                  <img key={i} src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} className="rounded-[4rem] w-full aspect-square object-cover shadow-2xl border-4 border-white/10 hover:scale-105 transition-transform duration-700" alt="Event" />
+                   <img key={i} src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl border-2 border-white/5 hover:scale-[1.02] transition-transform duration-500" alt="Event" />
                 ))}
              </div>
           </div>
-
-          <div className="flex justify-center mt-24">
-             <button className="px-12 py-6 bg-white/10 hover:bg-white/20 border-2 border-white/20 text-white rounded-full font-bold text-2xl transition-all">
+ 
+          <div className="flex justify-center mt-20">
+             <button className="px-10 py-4 bg-white text-[#db644d] hover:bg-white/90 rounded-full font-bold text-lg transition-all shadow-lg">
                 See More
              </button>
           </div>
