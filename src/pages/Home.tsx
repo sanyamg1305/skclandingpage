@@ -181,14 +181,9 @@ export default function Home() {
         </div>
       </Section>
       {/* 5. INSIDE THE PROGRAM - MOCKUP STYLE REFINED */}
-      <section className="relative py-32 lg:py-48 overflow-hidden bg-[#1a1a1a]">
+      <section className="relative py-32 lg:py-48 overflow-hidden bg-[#1a1a1a] border-none">
         <div className="absolute inset-0 z-0">
-           <img 
-             src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/uaRdMpdyJe.png" 
-             className="w-full h-full object-cover opacity-30 grayscale scale-110" 
-             alt="Background" 
-           />
-           <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] via-transparent to-[#1a1a1a]"></div>
+           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2a2a2a_0%,_#1a1a1a_100%)] opacity-40"></div>
         </div>
 
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
