@@ -180,78 +180,120 @@ export default function Home() {
           </div>
         </div>
       </Section>
-      {/* 5. INSIDE THE PROGRAM - REDESIGNED SPLIT-VIEW */}
-      <section className="bg-[#282828] py-32 relative overflow-hidden">
-        <div className="max-w-[1600px] mx-auto px-4 lg:px-20 relative">
-          
-          {/* Header Container - Positioned Top Right */}
-          <div className="flex justify-end mb-24">
-             <motion.h2 
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tighter leading-none text-right"
-             >
-                Inside The <br />Program
-             </motion.h2>
+      {/* 5. INSIDE THE PROGRAM - MOCKUP STYLE */}
+      <section className="relative py-32 overflow-hidden bg-[#1a1a1a]">
+        <div className="absolute inset-0 z-0">
+           <img 
+             src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/uaRdMpdyJe.png" 
+             className="w-full h-full object-cover opacity-40 grayscale" 
+             alt="Background" 
+           />
+           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-[#1a1a1a]"></div>
+        </div>
+
+        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+          <div className="flex justify-end mb-16">
+             <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight">Inside The Program</h2>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-stretch relative">
-             {/* Left Image Side */}
-             <div className="lg:w-[45%] relative z-10">
-                <div className="relative rounded-[4rem] overflow-hidden h-full min-h-[500px] lg:min-h-[700px] shadow-2xl">
-                   <img 
-                     src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/uaRdMpdyJe.png" 
-                     alt="Inside the program" 
-                     className="w-full h-full object-cover" 
-                   />
-                   <div className="absolute inset-0 bg-black/20"></div>
-                </div>
-                
-                {/* Horizontal Navigation Control (Over Image) */}
-                <div className="absolute top-1/2 left-10 -translate-y-1/2 z-30 w-16 h-16 rounded-full border border-white/30 bg-black/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-pointer">
-                   <ArrowLeft size={32} />
-                </div>
-             </div>
+          <div className="relative flex items-center">
+             {/* Navigation */}
+             <button className="absolute -left-4 lg:-left-20 z-20 w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
+                <ChevronRight size={32} className="rotate-180" />
+             </button>
+             <button className="absolute -right-4 lg:-right-20 z-20 w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
+                <ChevronRight size={32} />
+             </button>
 
-             {/* Right Content Cards Side */}
-             <div className="lg:w-[65%] flex flex-col md:flex-row gap-10 items-stretch lg:-ml-32 pt-20 lg:pt-0 relative z-20">
-                {/* Mentoring Card - Coral */}
-                <motion.div 
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="bg-[#db644d] p-12 md:p-16 rounded-[4rem] shadow-2xl flex-1 flex flex-col justify-center hover:scale-[1.02] transition-transform duration-500"
-                >
-                   <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">Mentoring</h3>
-                   <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-medium">
-                      Grounded guidance drawn from experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.
+             <motion.div 
+               variants={staggerContainer}
+               initial="hidden"
+               whileInView="show"
+               viewport={{ once: true }}
+               className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full"
+             >
+                <motion.div variants={fadeInUp} className="bg-[#db644d] p-12 lg:p-16 rounded-[2.5rem] shadow-2xl">
+                   <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6">Mentoring</h3>
+                   <p className="text-xl lg:text-2xl text-white/90 leading-relaxed font-medium">
+                      Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.
                    </p>
                 </motion.div>
 
-                {/* Coaching Card - Dark/Transparent with Border */}
-                <motion.div 
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="bg-[#282828] border-2 border-white/10 p-12 md:p-16 rounded-[4rem] shadow-2xl flex-1 flex flex-col justify-center hover:scale-[1.02] transition-transform duration-500"
-                >
-                   <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">Coaching</h3>
-                   <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-medium">
+                <motion.div variants={fadeInUp} className="bg-[#db644d] p-12 lg:p-16 rounded-[2.5rem] shadow-2xl">
+                   <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6">Coaching</h3>
+                   <p className="text-xl lg:text-2xl text-white/90 leading-relaxed font-medium">
                       Turning clarity into action. Coaching aligns intent with measurable results through structured guidance and consistent support.
                    </p>
                 </motion.div>
-                
-                {/* Right Arrow Control (Attached to right of cards) */}
-                <div className="absolute top-1/2 -right-8 -translate-y-1/2 z-30 w-16 h-16 rounded-full border border-white/30 bg-black/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-pointer hidden md:flex">
-                   <ArrowRight size={32} />
-                </div>
-             </div>
+             </motion.div>
           </div>
         </div>
       </section>
+
+      {/* 5.5 WHAT SHIFTS - NEW SECTION FROM MOCKUP */}
+      <section className="bg-[#111111] py-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+           <div className="grid lg:grid-cols-2 gap-20 items-center">
+              <div>
+                 <h2 className="text-5xl md:text-6xl font-bold text-white mb-16 leading-[1.1] tracking-tight">
+                    What Shifts When You <br />Go Through CEP
+                 </h2>
+
+                 <motion.div 
+                   variants={staggerContainer}
+                   initial="hidden"
+                   whileInView="show"
+                   viewport={{ once: true }}
+                   className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+                 >
+                    {[
+                      { t: 'Deep Immersive Learning', d: 'Four 3-day sessions focused on real breakthroughs, not just theory.', i: <BookOpen className="text-white/40" size={32} /> },
+                      { t: 'Inner Clarity & Steadiness', d: 'Two practices designed to strengthen mental clarity and decision confidence.', i: <Zap className="text-white/40" size={32} /> },
+                      { t: 'One-on-One Support', d: 'Three coaching sessions tailored to your specific business challenges.', i: <Users className="text-white/40" size={32} /> },
+                      { t: 'Lifelong Peer Community', d: 'Stay connected with leaders who understand your journey.', i: <Shield className="text-white/40" size={32} /> }
+                    ].map((card, i) => (
+                      <motion.div key={i} variants={fadeInUp} className="bg-[#db644d] p-8 lg:p-10 rounded-3xl h-full flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300">
+                         <div className="mb-6">{card.i}</div>
+                         <div>
+                            <h4 className="text-white font-bold text-xl lg:text-2xl mb-4 leading-tight">{card.t}</h4>
+                            <p className="text-white/80 text-lg leading-relaxed">{card.d}</p>
+                         </div>
+                      </motion.div>
+                    ))}
+                 </motion.div>
+              </div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                 {/* Offset Background */}
+                 <div className="absolute inset-0 bg-[#db644d] rounded-3xl translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8"></div>
+                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                    <img 
+                      src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/SMDzAwOLT1.png" 
+                      alt="CEP Session" 
+                      className="w-full h-auto object-cover" 
+                    />
+                 </div>
+              </motion.div>
+           </div>
+        </div>
+      </section>
+
+
+                
+
+
+
+
+
+
+
+                
+
 
       {/* 6. CEP IS RIGHT FOR YOU */}
       <Section dark className="bg-[#282828] !py-32">
