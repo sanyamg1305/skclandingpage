@@ -27,11 +27,11 @@ export default function Home() {
   ];
 
   const faqs = [
-    { q: 'What actually happens during the CEP sessions?', a: 'Sessions involve guided discussions, reflection exercises, and practical tools that participants apply to their own organisations.' },
-    { q: 'How much time will I need to commit?', a: 'The program involves four 3-day immersive workshops and supplemental coaching sessions.' },
-    { q: 'What kind of founders or leaders usually join CEP?', a: 'CEP is built for leaders with real authority—founders at scale, CXOs in transition, and more.' },
-    { q: 'Will I be able to work on challenges from my own organisation?', a: 'Yes, the program is designed around your specific business challenges.' },
-    { q: 'How big is a typical CEP cohort?', a: 'We keep cohorts small (typically under 20 people) to ensure deep peer connection.' },
+    { q: 'What actually happens during the CEP sessions?', a: 'Sessions involve guided discussions, reflection exercises, and practical tools that participants apply to their own organisations. The focus is on examining leadership decisions and strengthening organisational thinking.' },
+    { q: 'How much time will I need to commit?', a: 'CEP runs through structured sessions over several months. Participants may also spend time reflecting on their leadership decisions and applying ideas between sessions.' },
+    { q: 'What kind of founders or leaders usually join CEP?', a: 'Participants typically include founders, CXOs, and second-generation business leaders responsible for major decisions within their organisations.' },
+    { q: 'Will I be able to work on challenges from my own organisation during the program?', a: 'Yes. Many discussions and exercises are connected to real challenges participants face in their organisations.' },
+    { q: 'How big is a typical CEP cohort?', a: 'The cohort size varies depending on the group. It is designed to allow meaningful discussion and interaction among participants.' },
   ];
 
   return (
