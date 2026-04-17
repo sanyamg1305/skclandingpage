@@ -70,7 +70,7 @@ export default function Home() {
     { name: 'Chaitanya Kumar', role: 'Lead Coach', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/nv3Ap78TRT.png' },
     { name: 'Avdhesh Sharma', role: 'Executive Mentor', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/P3HAgwZXJD.png' },
     { name: 'Akshay Chandra', role: 'Leadership Consultant', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/rwXDaNWYad.png' },
-    { name: 'Abhishek Goel', role: 'Organizational Strategy', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/ERDY9BHhTO.png' },
+    { name: 'EW Abhishek Goel', role: 'Organizational Strategy', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/ERDY9BHhTO.png' },
   ];
 
   const faqs = [
@@ -440,19 +440,33 @@ export default function Home() {
 
       {/* 7. MEET THE COACHES */}
       <Section className="bg-white !py-32">
-        <h2 className="text-5xl md:text-7xl font-bold mb-20 text-center tracking-tighter">Meet The Coaches</h2>
+        <div className="max-w-4xl mx-auto mb-20">
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Meet The Coaches</h2>
+          <p className="text-xl text-gray-600 leading-relaxed font-medium">
+            You'll be guided by experienced coaches who have walked this path themselves. They bring decades of real world leadership experience, hard won wisdom, and genuine commitment to your transformation.
+          </p>
+        </div>
+        
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {coaches.map((c, i) => (
-            <motion.div key={i} variants={fadeInUp} className="flex flex-col items-center">
-               <img src={c.img} alt={c.name} className="w-full h-[500px] object-cover rounded-[4rem] grayscale hover:grayscale-0 transition-all duration-1000 mb-8 shadow-2xl" />
-               <h3 className="text-3xl font-bold mb-2">{c.name}</h3>
-               <p className="text-[#db644d] font-bold uppercase tracking-widest text-xs">{c.role}</p>
+            <motion.div 
+              key={i} 
+              variants={fadeInUp} 
+              className="group bg-white rounded-2xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl transition-all duration-500 border border-gray-100"
+            >
+               <div className="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+                  <img src={c.img} alt={c.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+               </div>
+               <div className="p-8">
+                  <h3 className="text-2xl font-bold mb-2 text-gray-900">{c.name}</h3>
+                  <p className="text-[#f26045] font-bold text-xs uppercase tracking-widest">{c.role}</p>
+               </div>
             </motion.div>
           ))}
         </motion.div>
@@ -460,15 +474,30 @@ export default function Home() {
 
       {/* 8. FROM OUR COHORTS - RESTORED */}
       <Section className="bg-gray-50 !py-32 border-y border-gray-100">
-        <h2 className="text-4xl md:text-6xl font-bold mb-12 tracking-tighter">From Our Cohorts</h2>
-        <p className="text-2xl text-gray-400 mb-16 max-w-3xl font-medium leading-relaxed">
-          Shared experience, deep connection, and collective growth between founders who face the same pressure.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {['mbWqiATx4a', 'ok0RPeWAPr', 'DWumVWPDjj'].map((img, i) => (
-            <img key={i} src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} alt="Cohort" className="rounded-[4rem] w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-xl" />
-          ))}
+        <div className="max-w-4xl mb-16 px-4">
+          <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tighter">From Our Cohorts</h2>
+          <p className="text-xl text-gray-600 font-medium leading-relaxed">
+            My journey with SKC has been game-changing and life-changing. 
+            It allows you to fix things going wrong in your life and stop negative spirals; I recommend it to all my loved ones.
+          </p>
         </div>
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {['mbWqiATx4a', 'ok0RPeWAPr', 'DWumVWPDjj'].map((img, i) => (
+            <motion.img 
+              key={i} 
+              variants={fadeInUp}
+              src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} 
+              alt="Cohort" 
+              className="rounded-3xl w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-xl" 
+            />
+          ))}
+        </motion.div>
       </Section>
 
       {/* 9. ALUMNI VOICE - RESTORED 2-COLUMN GRID */}
