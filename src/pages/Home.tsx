@@ -180,29 +180,36 @@ export default function Home() {
           </div>
         </div>
       </Section>
-      {/* 5. INSIDE THE PROGRAM - MOCKUP STYLE */}
-      <section className="relative py-32 overflow-hidden bg-[#1a1a1a]">
+      {/* 5. INSIDE THE PROGRAM - MOCKUP STYLE REFINED */}
+      <section className="relative py-32 lg:py-48 overflow-hidden bg-[#1a1a1a]">
         <div className="absolute inset-0 z-0">
            <img 
              src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/uaRdMpdyJe.png" 
-             className="w-full h-full object-cover opacity-40 grayscale" 
+             className="w-full h-full object-cover opacity-30 grayscale scale-110" 
              alt="Background" 
            />
-           <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-[#1a1a1a]"></div>
+           <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] via-transparent to-[#1a1a1a]"></div>
         </div>
 
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-          <div className="flex justify-end mb-16">
-             <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tight">Inside The Program</h2>
+          <div className="flex justify-end mb-24">
+             <motion.h2 
+               initial={{ opacity: 0, x: 50 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               className="text-5xl md:text-8xl font-black text-white tracking-tight text-right uppercase"
+             >
+                Inside The <br />Program
+             </motion.h2>
           </div>
 
-          <div className="relative flex items-center">
+          <div className="relative">
              {/* Navigation */}
-             <button className="absolute -left-4 lg:-left-20 z-20 w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
-                <ChevronRight size={32} className="rotate-180" />
+             <button className="absolute -left-4 lg:-left-20 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white hover:bg-[#db644d] hover:border-[#db644d] transition-all">
+                <ArrowLeft size={32} />
              </button>
-             <button className="absolute -right-4 lg:-right-20 z-20 w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all">
-                <ChevronRight size={32} />
+             <button className="absolute -right-4 lg:-right-20 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center text-white hover:bg-[#db644d] hover:border-[#db644d] transition-all">
+                <ArrowRight size={32} />
              </button>
 
              <motion.div 
@@ -210,52 +217,63 @@ export default function Home() {
                initial="hidden"
                whileInView="show"
                viewport={{ once: true }}
-               className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full"
+               className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full"
              >
-                <motion.div variants={fadeInUp} className="bg-[#db644d] p-12 lg:p-16 rounded-[2.5rem] shadow-2xl">
-                   <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6">Mentoring</h3>
-                   <p className="text-xl lg:text-2xl text-white/90 leading-relaxed font-medium">
-                      Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.
-                   </p>
+                <motion.div variants={fadeInUp} className="bg-[#db644d] p-12 lg:p-16 rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
+                   <div className="relative z-10">
+                      <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6">Mentoring</h3>
+                      <p className="text-xl lg:text-2xl text-white/90 leading-relaxed font-medium">
+                         Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.
+                      </p>
+                   </div>
+                   <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-tl-full translate-x-12 translate-y-12 group-hover:translate-x-8 group-hover:translate-y-8 transition-transform duration-500"></div>
                 </motion.div>
 
-                <motion.div variants={fadeInUp} className="bg-[#db644d] p-12 lg:p-16 rounded-[2.5rem] shadow-2xl">
-                   <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6">Coaching</h3>
-                   <p className="text-xl lg:text-2xl text-white/90 leading-relaxed font-medium">
-                      Turning clarity into action. Coaching aligns intent with measurable results through structured guidance and consistent support.
-                   </p>
+                <motion.div variants={fadeInUp} className="bg-[#db644d] p-12 lg:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                   <div className="relative z-10">
+                      <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6">Coaching</h3>
+                      <p className="text-xl lg:text-2xl text-white/90 leading-relaxed font-medium">
+                         Turning clarity into action. Coaching aligns intent with measurable results through structured guidance and consistent support.
+                      </p>
+                   </div>
+                   <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-tl-full translate-x-12 translate-y-12 group-hover:translate-x-8 group-hover:translate-y-8 transition-transform duration-500"></div>
                 </motion.div>
              </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 5.5 WHAT SHIFTS - NEW SECTION FROM MOCKUP */}
-      <section className="bg-[#111111] py-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-           <div className="grid lg:grid-cols-2 gap-20 items-center">
-              <div>
-                 <h2 className="text-5xl md:text-6xl font-bold text-white mb-16 leading-[1.1] tracking-tight">
-                    What Shifts When You <br />Go Through CEP
-                 </h2>
+      {/* 5.5 WHAT SHIFTS - MOCKUP STYLE REFINED */}
+      <section className="bg-[#111111] py-32 lg:py-48 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+           <div className="grid lg:grid-cols-12 gap-20 items-center">
+              <div className="lg:col-span-7">
+                 <motion.h2 
+                   initial={{ opacity: 0, y: 30 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   className="text-5xl md:text-7xl font-bold text-white mb-20 leading-[1.1] tracking-tight"
+                 >
+                    What Shifts When <br />You Go Through CEP
+                 </motion.h2>
 
                  <motion.div 
                    variants={staggerContainer}
                    initial="hidden"
                    whileInView="show"
                    viewport={{ once: true }}
-                   className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+                   className="grid grid-cols-1 sm:grid-cols-2 gap-8"
                  >
                     {[
-                      { t: 'Deep Immersive Learning', d: 'Four 3-day sessions focused on real breakthroughs, not just theory.', i: <BookOpen className="text-white/40" size={32} /> },
-                      { t: 'Inner Clarity & Steadiness', d: 'Two practices designed to strengthen mental clarity and decision confidence.', i: <Zap className="text-white/40" size={32} /> },
-                      { t: 'One-on-One Support', d: 'Three coaching sessions tailored to your specific business challenges.', i: <Users className="text-white/40" size={32} /> },
-                      { t: 'Lifelong Peer Community', d: 'Stay connected with leaders who understand your journey.', i: <Shield className="text-white/40" size={32} /> }
+                      { t: 'Deep Immersive Learning', d: 'Four 3-day sessions focused on real breakthroughs, not just theory.', i: <BookOpen className="text-white/40 group-hover:text-white group-hover:scale-110 transition-all duration-500" size={40} /> },
+                      { t: 'Inner Clarity & Steadiness', d: 'Two practices designed to strengthen mental clarity and decision confidence.', i: <Zap className="text-white/40 group-hover:text-white group-hover:scale-110 transition-all duration-500" size={40} /> },
+                      { t: 'One-on-One Support', d: 'Three coaching sessions tailored to your specific business challenges.', i: <Users className="text-white/40 group-hover:text-white group-hover:scale-110 transition-all duration-500" size={40} /> },
+                      { t: 'Lifelong Peer Community', d: 'Stay connected with leaders who understand your journey.', i: <Shield className="text-white/40 group-hover:text-white group-hover:scale-110 transition-all duration-500" size={40} /> }
                     ].map((card, i) => (
-                      <motion.div key={i} variants={fadeInUp} className="bg-[#db644d] p-8 lg:p-10 rounded-3xl h-full flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300">
-                         <div className="mb-6">{card.i}</div>
+                      <motion.div key={i} variants={fadeInUp} className="bg-[#db644d] p-10 lg:p-12 rounded-[2.5rem] h-full flex flex-col justify-between hover:translate-y-[-12px] hover:shadow-[0_20px_50px_rgba(219,100,77,0.3)] transition-all duration-500 group cursor-default">
+                         <div className="mb-8">{card.i}</div>
                          <div>
-                            <h4 className="text-white font-bold text-xl lg:text-2xl mb-4 leading-tight">{card.t}</h4>
+                            <h4 className="text-white font-bold text-2xl lg:text-3xl mb-4 leading-tight group-hover:translate-x-2 transition-transform duration-500">{card.t}</h4>
                             <p className="text-white/80 text-lg leading-relaxed">{card.d}</p>
                          </div>
                       </motion.div>
@@ -264,18 +282,18 @@ export default function Home() {
               </div>
 
               <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, scale: 0.9, x: 50 }}
+                whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="relative"
+                transition={{ duration: 1 }}
+                className="lg:col-span-5 relative"
               >
-                 {/* Offset Background */}
-                 <div className="absolute inset-0 bg-[#db644d] rounded-3xl translate-x-4 translate-y-4 lg:translate-x-8 lg:translate-y-8"></div>
-                 <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                 <div className="absolute inset-0 bg-[#db644d] rounded-[3rem] translate-x-6 translate-y-6 lg:translate-x-12 lg:translate-y-12"></div>
+                 <div className="relative rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/5]">
                     <img 
                       src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/SMDzAwOLT1.png" 
                       alt="CEP Session" 
-                      className="w-full h-auto object-cover" 
+                      className="w-full h-full object-cover" 
                     />
                  </div>
               </motion.div>
@@ -295,46 +313,45 @@ export default function Home() {
                 
 
 
-      {/* 6. CEP IS RIGHT FOR YOU */}
-      <Section dark className="bg-[#282828] !py-32">
+      {/* 6. CEP IS RIGHT FOR YOU - MOCKUP STYLE */}
+      <Section dark className="bg-[#111111] !py-32">
         <div className="flex flex-col lg:flex-row gap-20 items-center">
           <div className="lg:w-1/2">
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-bold text-white mb-16 tracking-tighter leading-[0.9]"
+              className="text-6xl md:text-8xl font-black text-white tracking-tight mb-8 uppercase"
             >
-              CEP Is Right for You If This <br />Feels Familiar
+              Is CEP Right <br />For You?
             </motion.h2>
-            
-            <NumberedPillars />
-
-            <div className="flex flex-col sm:flex-row gap-6 mt-20">
-              <Link to="/contact" className="bg-white text-[#01162c] px-12 py-5 rounded-full font-bold text-xl hover:bg-[#f26045] hover:text-white transition-all text-center">
-                Apply Now
-              </Link>
-              <Link to="/contact" className="bg-[#f26045] text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-white hover:text-[#01162c] transition-all text-center">
-                Contact Us
-              </Link>
-            </div>
+            <p className="text-2xl text-gray-400 font-medium leading-relaxed max-w-xl">
+              This program is for founders who have already moved past the early survival phase and are now focused on building sustainable, scalable organisations.
+            </p>
           </div>
-          <div className="lg:w-1/2 relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <img 
-                src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/SMDzAwOLT1.png" 
-                alt="CEP Candidate" 
-                className="rounded-[4rem] w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl" 
-              />
-            </motion.div>
+          <div className="lg:w-1/2 space-y-6">
+            {[
+              "You lead an organisation with 20+ members",
+              "You are facing the pressures of scaling leadership",
+              "You want to shift from instruction to empowerment",
+              "You are ready to commit to deep personal growth"
+            ].map((text, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="flex items-center gap-6 p-8 bg-white/5 rounded-3xl border border-white/10 hover:bg-[#db644d]/10 transition-all cursor-default group"
+              >
+                <CheckCircle2 className="text-[#db644d] group-hover:scale-110 transition-transform" size={32} />
+                <span className="text-xl md:text-2xl font-bold">{text}</span>
+              </motion.div>
+            ))}
           </div>
         </div>
       </Section>
+
 
       {/* 7. WHAT YOU GRADUATE WITH AS A LEADER */}
       <Section className="bg-white !py-32">
@@ -604,23 +621,30 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 11. EVENT GALLERY - MOCKUP STYLE */}
-      <Section className="bg-[#db644d] !py-32 overflow-hidden relative">
+      {/* 11. EVENT GALLERY - MOCKUP STYLE REFINED */}
+      <Section className="bg-[#db644d] !py-40 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16 text-white">
-             <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Event Gallery</h2>
-             <p className="text-white/80 text-lg max-w-3xl mx-auto leading-relaxed font-medium">
-                A curated collection of moments from our past cohorts, immersive workshops, and transformative learning experiences.
+          <div className="text-center mb-24 text-white">
+             <motion.h2 
+               initial={{ opacity: 0, scale: 0.9 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               className="text-6xl md:text-9xl font-black tracking-tighter mb-8 uppercase"
+             >
+                Event Gallery
+             </motion.h2>
+             <p className="text-white/90 text-2xl max-w-3xl mx-auto leading-relaxed font-semibold">
+                Snapshots of transformation from our deep-dive workshops.
              </p>
           </div>
           
-          <div className="relative max-w-6xl mx-auto">
-             {/* Navigation Buttons */}
-             <button className="absolute -left-12 lg:-left-20 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-[#db644d] hover:bg-white transition-all">
-                <ChevronRight size={32} className="rotate-180" />
+          <div className="relative max-w-6xl mx-auto group">
+             {/* Navigation */}
+             <button className="absolute -left-12 lg:-left-24 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center text-[#db644d] hover:scale-110 transition-all">
+                <ArrowLeft size={32} />
              </button>
-             <button className="absolute -right-12 lg:-right-20 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-[#db644d] hover:bg-white transition-all">
-                <ChevronRight size={32} />
+             <button className="absolute -right-12 lg:-right-24 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center text-[#db644d] hover:scale-110 transition-all">
+                <ArrowRight size={32} />
              </button>
  
              <motion.div 
@@ -635,35 +659,126 @@ export default function Home() {
                      key={i} 
                      variants={fadeInUp} 
                      src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} 
-                     className="rounded-3xl w-full aspect-[4/3] object-cover shadow-2xl hover:scale-[1.02] transition-transform duration-500 cursor-pointer" 
+                     className="rounded-[2.5rem] w-full aspect-[4/3] object-cover shadow-2xl hover:brightness-110 transition-all duration-500 cursor-zoom-in" 
                      alt="Event" 
                    />
                 ))}
              </motion.div>
           </div>
  
-          <div className="flex justify-center mt-20">
-             <button className="px-14 py-4 bg-white text-[#db644d] hover:bg-gray-50 rounded-full font-bold text-xl transition-all shadow-xl">
+          <div className="flex justify-center mt-24">
+             <button className="px-16 py-5 bg-white text-[#db644d] hover:bg-black hover:text-white rounded-full font-black text-2xl transition-all shadow-2xl">
                 See More
              </button>
           </div>
         </div>
       </Section>
 
-      {/* 12. FINAL APPLICATION FORM */}
+      {/* 12. FINAL APPLICATION FORM - MOCKUP STYLE */}
       <Section className="bg-white !py-40" id="contact">
-        <div className="max-w-5xl mx-auto">
-           <h2 className="text-7xl md:text-9xl font-bold mb-20 text-center tracking-tighter text-[#01162c]">Ready to evolve?</h2>
-           <form className="space-y-12 bg-gray-50 p-16 md:p-32 rounded-[5rem] shadow-2xl border border-gray-100">
-              <input type="text" placeholder="Full Name" className="w-full p-10 rounded-[3rem] bg-white border-2 border-transparent focus:border-[#f26045] outline-none text-3xl font-medium" />
-              <input type="email" placeholder="Work Email" className="w-full p-10 rounded-[3rem] bg-white border-2 border-transparent focus:border-[#f26045] outline-none text-3xl font-medium" />
-              <textarea placeholder="Your Leadership Challenge" rows={5} className="w-full p-10 rounded-[3rem] bg-white border-2 border-transparent focus:border-[#f26045] outline-none text-3xl font-medium resize-none"></textarea>
-              <button className="w-full bg-[#f26045] text-white py-10 rounded-full font-bold text-4xl hover:bg-black transition-all shadow-2xl">
-                Submit Application
-              </button>
-           </form>
+        <div className="grid lg:grid-cols-2 gap-20">
+           <div>
+              <h2 className="text-7xl md:text-9xl font-black mb-10 tracking-tighter text-[#01162c] uppercase">Apply Now</h2>
+              <p className="text-2xl text-gray-500 font-medium leading-relaxed max-w-lg">
+                This is a curated program designed for a small group of founders. Apply below and we'll get back to you if there's a strong alignment.
+              </p>
+           </div>
+           
+           <div className="space-y-10">
+              <div className="grid md:grid-cols-2 gap-8">
+                 <div>
+                    <label className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Name</label>
+                    <input type="text" className="w-full p-6 rounded-xl bg-gray-100 border-none focus:ring-2 focus:ring-[#f26045] outline-none text-xl font-medium" />
+                 </div>
+                 <div>
+                    <label className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Email</label>
+                    <input type="email" className="w-full p-6 rounded-xl bg-gray-100 border-none focus:ring-2 focus:ring-[#f26045] outline-none text-xl font-medium" />
+                 </div>
+              </div>
+              <div>
+                 <label className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Phone No.</label>
+                 <input type="text" className="w-full p-6 rounded-xl bg-gray-100 border-none focus:ring-2 focus:ring-[#f26045] outline-none text-xl font-medium" />
+              </div>
+              <div>
+                 <label className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Your Message</label>
+                 <textarea rows={5} className="w-full p-6 rounded-xl bg-gray-100 border-none focus:ring-2 focus:ring-[#f26045] outline-none text-xl font-medium resize-none"></textarea>
+              </div>
+              <div className="flex flex-wrap gap-6 pt-6">
+                 <button className="bg-black text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-[#db644d] transition-all shadow-xl">
+                    Apply Now
+                 </button>
+                 <button className="bg-white text-black border-2 border-black px-12 py-5 rounded-full font-bold text-xl hover:bg-black hover:text-white transition-all shadow-xl">
+                    Contact Us
+                 </button>
+              </div>
+           </div>
         </div>
       </Section>
+
+      {/* 13. FOOTER - MOCKUP STYLE */}
+      <footer className="bg-[#222222] text-white pt-32 pb-16">
+         <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
+               <div className="lg:col-span-1">
+                  <div className="flex items-center gap-3 mb-8">
+                     <span className="text-3xl font-black tracking-tighter">SKC.World</span>
+                  </div>
+                  <p className="text-gray-400 font-medium leading-relaxed">
+                     Conscious Entrepreneurship
+                  </p>
+               </div>
+               
+               <div>
+                  <h4 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-10">About Program</h4>
+                  <ul className="space-y-6 text-xl font-medium">
+                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Program Structure</a></li>
+                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Upcoming Batches</a></li>
+                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Program Takeaways</a></li>
+                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Who Should Do It</a></li>
+                  </ul>
+               </div>
+
+               <div>
+                  <h4 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-10">Registration</h4>
+                  <ul className="space-y-6 text-xl font-medium">
+                     <li><a href="#" className="hover:text-[#f26045] transition-colors">SKC Testimonials</a></li>
+                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Blog</a></li>
+                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Contact Us</a></li>
+                  </ul>
+               </div>
+
+               <div>
+                  <h4 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-10">Social With Us</h4>
+                  <motion.div 
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    className="flex gap-6"
+                  >
+                     {['facebook', 'linkedin', 'instagram', 'youtube'].map((social) => (
+                        <motion.a 
+                           key={social} 
+                           variants={fadeInUp}
+                           href="#" 
+                           className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#db644d] hover:border-[#db644d] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group"
+                        >
+                           <div className="w-6 h-6 bg-white/80 rounded-sm group-hover:bg-white transition-colors"></div>
+                        </motion.a>
+                     ))}
+                  </motion.div>
+               </div>
+            </div>
+
+            <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-gray-500 font-medium">
+               <p>© 2024. All Rights Reserved.</p>
+               <div className="flex gap-12">
+                  <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+                  <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
+               </div>
+            </div>
+         </div>
+      </footer>
     </div>
   );
 }
