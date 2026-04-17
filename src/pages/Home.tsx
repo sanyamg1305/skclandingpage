@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom';
 import NumberedPillars from '../components/ui/NumberedPillars';
 
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   const stats = [
     { label: 'Founders & CXOs Guided', value: '1000+', icon: <Users className="text-[#db644d]" size={32} /> },
     { label: 'Years of Leadership Work', value: '25+', icon: <Award className="text-[#db644d]" size={32} /> },
@@ -420,9 +422,30 @@ export default function Home() {
            </div>
            <div className="lg:col-span-8 divide-y divide-white/10">
               {faqs.map((f, i) => (
-                <div key={i} className="py-12 group cursor-pointer flex justify-between items-center text-3xl font-bold text-white/90 hover:text-[#f26045] transition-colors">
-                  <span className="max-w-[85%]">{f.q}</span>
-                  <Plus size={32} className="shrink-0" />
+                <div key={i} className="py-8 group cursor-pointer flex flex-col justify-center transition-all">
+                  <div 
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="flex justify-between items-center text-3xl font-bold py-4 text-white/90 hover:text-[#f26045] transition-colors"
+                  >
+                    <span className="max-w-[85%]">{f.q}</span>
+                    {openFaq === i ? <Minus size={32} className="shrink-0" /> : <Plus size={32} className="shrink-0" />}
+                  </div>
+                  
+                  <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-xl text-gray-400 font-medium leading-relaxed pb-8 pr-12">
+                          {f.a}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
            </div>
