@@ -622,7 +622,7 @@ export default function Home() {
                initial={{ opacity: 0, scale: 0.9 }}
                whileInView={{ opacity: 1, scale: 1 }}
                viewport={{ once: true }}
-               className="text-5xl md:text-7xl font-black tracking-tighter mb-6 md:mb-8 uppercase text-[#DDD54D]"
+               className="text-5xl md:text-7xl font-black tracking-tighter mb-6 md:mb-8 uppercase text-[#DD654D]"
              >
                 Event Gallery
              </motion.h2>
