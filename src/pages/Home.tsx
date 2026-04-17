@@ -617,28 +617,28 @@ export default function Home() {
       </Section>
 
       {/* 11. EVENT GALLERY - MOCKUP STYLE REFINED */}
-      <Section className="bg-[#db644d] !py-40 overflow-hidden relative">
+      <Section className="bg-[#DD654D] !py-40 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-24 text-white">
              <motion.h2 
                initial={{ opacity: 0, scale: 0.9 }}
                whileInView={{ opacity: 1, scale: 1 }}
                viewport={{ once: true }}
-               className="text-6xl md:text-9xl font-black tracking-tighter mb-8 uppercase"
+               className="text-6xl md:text-9xl font-black tracking-tighter mb-8 uppercase text-white"
              >
                 Event Gallery
              </motion.h2>
-             <p className="text-white/90 text-2xl max-w-3xl mx-auto leading-relaxed font-semibold">
+             <p className="text-white text-2xl max-w-3xl mx-auto leading-relaxed font-semibold">
                 Snapshots of transformation from our deep-dive workshops.
              </p>
           </div>
           
           <div className="relative max-w-6xl mx-auto group">
              {/* Navigation */}
-             <button className="absolute -left-12 lg:-left-24 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center text-[#db644d] hover:scale-110 transition-all">
+             <button className="absolute -left-12 lg:-left-24 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center text-[#DD654D] hover:scale-110 transition-all">
                 <ArrowLeft size={32} />
              </button>
-             <button className="absolute -right-12 lg:-right-24 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center text-[#db644d] hover:scale-110 transition-all">
+             <button className="absolute -right-12 lg:-right-24 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center text-[#DD654D] hover:scale-110 transition-all">
                 <ArrowRight size={32} />
              </button>
  
@@ -662,7 +662,7 @@ export default function Home() {
           </div>
  
           <div className="flex justify-center mt-24">
-             <button className="px-16 py-5 bg-white text-[#db644d] hover:bg-black hover:text-white rounded-full font-black text-2xl transition-all shadow-2xl">
+             <button className="px-16 py-5 bg-white text-[#DD654D] hover:bg-black hover:text-white rounded-full font-black text-2xl transition-all shadow-2xl">
                 See More
              </button>
           </div>
