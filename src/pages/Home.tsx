@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Section from '../components/ui/Section';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView, animate } from 'framer-motion';
 import { 
   ArrowRight, ArrowLeft, ChevronRight, Award, Users, BookOpen, Clock, 
   PlayCircle, Download, CheckCircle2, Quote, Plus, Minus, Mail, Phone, MapPin, Send,
@@ -8,6 +8,51 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import NumberedPillars from '../components/ui/NumberedPillars';
+
+const CountUp = ({ value }: { value: string }) => {
+  const numericValue = parseInt(value.replace(/[^0-9]/g, ''));
+  const suffix = value.replace(/[0-9]/g, '');
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (inView) {
+      const controls = animate(0, numericValue, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate(v) {
+          setCount(Math.floor(v));
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [inView, numericValue]);
+
+  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
+  }
+};
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -58,24 +103,46 @@ export default function Home() {
       {/* 2. PROGRAM LOOKS LIKE */}
       <Section dark className="bg-[#282828] !py-32">
         <h2 className="text-4xl md:text-5xl font-bold mb-16 tracking-tight">What the Program Looks Like</h2>
-        <div className="flex flex-wrap gap-4 mb-20">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="flex flex-wrap gap-4 mb-20"
+        >
           {programTraits.map((t, i) => (
-            <div key={i} className="px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white/80 font-bold text-lg">{t}</div>
+            <motion.div 
+              key={i} 
+              variants={fadeInUp}
+              className="px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white/80 font-bold text-lg"
+            >
+              {t}
+            </motion.div>
           ))}
-        </div>
-        <div className="space-y-12 mb-20">
+        </motion.div>
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="space-y-12 mb-20"
+        >
           {[
             { t: 'Four 3-Day Immersive Workshops', d: 'Deep-dive sessions combining peer learning, expert mentoring, and meaningful conversations.' },
             { t: 'Two Conscious Presence Practices', d: 'Guided reflection sessions building mental clarity and emotional steadiness under pressure.' },
             { t: 'Three One-on-One Coaching Sessions', d: 'Personal guidance applying program learnings to your specific business challenges.' },
             { t: 'Active Alumni Network', d: 'Ongoing peer connection, shared learning, and quarterly meetups.' }
           ].map((item, i) => (
-            <div key={i} className="flex flex-col md:grid md:grid-cols-12 gap-8 items-start border-t border-white/10 pt-12 first:border-0 first:pt-0">
+            <motion.div 
+              key={i} 
+              variants={fadeInUp}
+              className="flex flex-col md:grid md:grid-cols-12 gap-8 items-start border-t border-white/10 pt-12 first:border-0 first:pt-0"
+            >
                <div className="md:col-span-5"><h3 className="text-2xl md:text-4xl font-bold text-[#f26045]">{item.t}</h3></div>
                <div className="md:col-span-7"><p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed">{item.d}</p></div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Section>
 
       {/* 3. STATS */}
@@ -83,7 +150,9 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col">
-              <div className="text-6xl md:text-7xl font-bold text-[#db644d] mb-4 tracking-tighter">{stat.value}</div>
+              <div className="text-6xl md:text-7xl font-bold text-[#db644d] mb-4 tracking-tighter">
+                <CountUp value={stat.value} />
+              </div>
               <div className="text-[#01162c] font-bold text-sm uppercase tracking-[0.2em]">{stat.label}</div>
               <div className="mt-6 h-px w-full bg-gray-100"></div>
             </div>
@@ -253,7 +322,13 @@ export default function Home() {
               </motion.h2>
             </div>
             <div className="lg:w-2/3">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div 
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-8"
+              >
                 {[
                   {
                     title: "Empowered Teams",
@@ -278,10 +353,7 @@ export default function Home() {
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
+                    variants={fadeInUp}
                     className="p-10 bg-white rounded-[2rem] shadow-[0_5px_30px_0_rgba(39,35,74,0.1)] hover:shadow-2xl transition-all border border-gray-50 flex flex-col gap-6"
                   >
                     <div className="flex items-center gap-4">
@@ -295,7 +367,7 @@ export default function Home() {
                     </p>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -317,7 +389,13 @@ export default function Home() {
               <p className="text-xl md:text-2xl opacity-90">A transformational change in your leadership abilities.</p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8">
+            <motion.div 
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 gap-8"
+            >
               {[
                 { text: "Distributed Leadership Ownership", icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/hqhrR4ne1m.png" },
                 { text: "Clear Accountability Across Teams", icon: "https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/4yBnPnYkFk.png" },
@@ -326,10 +404,7 @@ export default function Home() {
               ].map((point, idx) => (
                 <motion.div 
                   key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
+                  variants={fadeInUp}
                   className="flex items-center gap-6"
                 >
                   <div className="w-12 h-12 shrink-0">
@@ -340,7 +415,7 @@ export default function Home() {
                   </span>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -366,15 +441,21 @@ export default function Home() {
       {/* 7. MEET THE COACHES */}
       <Section className="bg-white !py-32">
         <h2 className="text-5xl md:text-7xl font-bold mb-20 text-center tracking-tighter">Meet The Coaches</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12"
+        >
           {coaches.map((c, i) => (
-            <div key={i} className="flex flex-col items-center">
+            <motion.div key={i} variants={fadeInUp} className="flex flex-col items-center">
                <img src={c.img} alt={c.name} className="w-full h-[500px] object-cover rounded-[4rem] grayscale hover:grayscale-0 transition-all duration-1000 mb-8 shadow-2xl" />
                <h3 className="text-3xl font-bold mb-2">{c.name}</h3>
                <p className="text-[#db644d] font-bold uppercase tracking-widest text-xs">{c.role}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Section>
 
       {/* 8. FROM OUR COHORTS - RESTORED */}
@@ -470,11 +551,17 @@ export default function Home() {
                 <ArrowRight size={24} />
              </button>
  
-             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+             <motion.div 
+               variants={staggerContainer}
+               initial="hidden"
+               whileInView="show"
+               viewport={{ once: true }}
+               className="grid grid-cols-2 md:grid-cols-3 gap-6"
+             >
                 {['KEa1R2q9Oe', 'Nm1MLGKF3A', 'aX2JGytTv3', 'eTMHXoGtkJ', '5dGtP4QHLh', 'QKq988ujHM'].map((img, i) => (
-                   <img key={i} src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl border-2 border-white/5 hover:scale-[1.02] transition-transform duration-500" alt="Event" />
+                   <motion.img key={i} variants={fadeInUp} src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} className="rounded-2xl w-full aspect-[4/3] object-cover shadow-xl border-2 border-white/5 hover:scale-[1.02] transition-transform duration-500" alt="Event" />
                 ))}
-             </div>
+             </motion.div>
           </div>
  
           <div className="flex justify-center mt-20">
