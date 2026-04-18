@@ -8,6 +8,10 @@
   --background-end-rgb: 0, 0, 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   body {
     @apply antialiased text-[#01162c] bg-white overflow-x-hidden;
@@ -16,7 +20,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Gotham', 'Helvetica', sans-serif;
-    @apply tracking-tighter;
+    @apply tracking-tight font-semibold;
   }
 }
 

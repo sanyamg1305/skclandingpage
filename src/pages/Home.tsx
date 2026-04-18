@@ -6,7 +6,7 @@ import {
   PlayCircle, Download, CheckCircle2, Quote, Plus, Minus, Mail, Phone, MapPin, Send,
   Target, Zap, RefreshCw, Shield
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+
 import NumberedPillars from '../components/ui/NumberedPillars';
 
 const CountUp = ({ value }: { value: string }) => {
@@ -87,7 +87,7 @@ export default function Home() {
       <section className="relative min-h-[85vh] md:h-[90vh] flex items-center bg-[#282828] py-20 md:py-0">
         <div className="absolute inset-0 bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/xSDn9BZLCA.png)] bg-cover bg-center opacity-40"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-4xl md:text-7xl font-bold text-white mb-8 leading-[0.9] tracking-tighter">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight tracking-tight">
             Conscious <br />
             <span className="text-[#f26045]">Entrepreneurship <br />Program™</span>
           </motion.h1>
@@ -95,14 +95,14 @@ export default function Home() {
             Built for leaders shaping businesses at scale. A cohort-based program for founders and CXOs ready to transform how they lead.
           </p>
           <div className="flex flex-col sm:flex-row gap-6">
-            <Link to="/contact" className="bg-[#f26045] text-white px-10 py-5 rounded-full font-bold text-lg md:text-xl hover:bg-white hover:text-black transition-all text-center">Apply Now</Link>
+            <a href="#contact" className="bg-[#f26045] text-white px-10 py-5 rounded-full font-bold text-lg md:text-xl hover:bg-white hover:text-black transition-all text-center">Apply Now</a>
           </div>
         </div>
       </section>
 
       {/* 2. PROGRAM LOOKS LIKE */}
-      <Section dark className="bg-[#282828] !py-24 md:!py-32">
-        <h2 className="text-3xl md:text-5xl font-bold mb-12 md:mb-16 tracking-tight">What the Program Looks Like</h2>
+      <Section dark id="about" className="bg-[#282828] !py-24 md:!py-32">
+        <h2 className="text-2xl md:text-4xl font-semibold mb-12 md:mb-16 tracking-tight">What the Program Looks Like</h2>
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
@@ -138,7 +138,7 @@ export default function Home() {
               variants={fadeInUp}
               className="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 items-start border-t border-white/10 pt-10 md:pt-12 first:border-0 first:pt-0"
             >
-               <div className="md:col-span-5"><h3 className="text-2xl md:text-4xl font-bold text-[#f26045]">{item.t}</h3></div>
+               <div className="md:col-span-5"><h3 className="text-xl md:text-3xl font-semibold text-[#f26045]">{item.t}</h3></div>
                <div className="md:col-span-7"><p className="text-lg md:text-2xl text-gray-400 font-medium leading-relaxed">{item.d}</p></div>
             </motion.div>
           ))}
@@ -164,7 +164,7 @@ export default function Home() {
       <Section className="bg-gray-50 !py-24 md:!py-32">
         <div className="flex flex-col lg:flex-row gap-16 md:gap-20">
           <div className="lg:w-1/2">
-             <h2 className="text-5xl md:text-8xl font-bold mb-8 md:mb-10 tracking-tighter leading-[0.9]">Specially <br />Designed For</h2>
+             <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-10 tracking-tight leading-tight">Specially <br />Designed For</h2>
              <div className="space-y-10 md:space-y-12 mt-12 md:mt-16">
                 {['Founders at Scale', 'CXOs in Transition', 'Second-Generation Leaders'].map((t, i) => (
                    <div key={i} className="border-l-4 border-[#f26045] pl-6 md:pl-8">
@@ -191,7 +191,7 @@ export default function Home() {
                initial={{ opacity: 0, x: 50 }}
                whileInView={{ opacity: 1, x: 0 }}
                viewport={{ once: true }}
-               className="text-5xl md:text-8xl font-black text-white tracking-tight text-right uppercase"
+               className="text-3xl md:text-6xl font-bold text-white tracking-tight text-right uppercase"
              >
                 Inside The <br />Program
              </motion.h2>
@@ -242,11 +242,11 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
            <div className="grid lg:grid-cols-12 gap-16 md:gap-20 items-center">
               <div className="lg:col-span-7">
-                 <motion.h2 
+                  <motion.h2 
                    initial={{ opacity: 0, y: 30 }}
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
-                   className="text-4xl md:text-7xl font-bold text-white mb-12 md:mb-20 leading-[1.1] tracking-tight"
+                   className="text-3xl md:text-5xl font-bold text-white mb-12 md:mb-20 leading-tight tracking-tight"
                  >
                     What Shifts When <br />You Go Through CEP
                  </motion.h2>
@@ -315,7 +315,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-8xl font-black text-white tracking-tight mb-6 md:mb-8 uppercase"
+              className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 md:mb-8 uppercase"
             >
               Is CEP Right <br />For You?
             </motion.h2>
@@ -369,7 +369,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-5xl font-bold text-[#01162c] leading-[1.1] tracking-tight"
+                className="text-2xl md:text-4xl font-bold text-[#01162c] leading-tight tracking-tight"
               >
                 What You Graduate With <br />as a Leader
               </motion.h2>
@@ -427,7 +427,7 @@ export default function Home() {
       </Section>
 
       {/* 8. ORGANISATIONAL SHIFTS */}
-      <div className="relative overflow-hidden bg-white">
+      <div id="shifts" className="relative overflow-hidden bg-white">
         <div className="flex flex-col lg:flex-row min-h-[500px] md:min-h-[600px]">
           <div className="lg:w-3/5 bg-[#DD654D] py-16 px-6 md:px-24 flex flex-col justify-center gap-10 md:gap-12 text-white">
             <div className="space-y-4">
@@ -435,7 +435,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl md:text-6xl font-bold"
+                className="text-3xl md:text-5xl font-bold"
               >
                 Organisational Shifts
               </motion.h2>
@@ -476,9 +476,9 @@ export default function Home() {
               viewport={{ once: true }}
               className="mt-8"
             >
-              <Link to="/contact" className="bg-white text-black px-12 py-5 rounded-full font-bold text-xl hover:bg-black hover:text-white transition-all inline-block">
+              <a href="#contact" className="bg-white text-black px-12 py-5 rounded-full font-bold text-xl hover:bg-black hover:text-white transition-all inline-block">
                 Apply Now
-              </Link>
+              </a>
             </motion.div>
           </div>
           <div className="lg:w-2/5 relative min-h-[400px]">
@@ -494,7 +494,7 @@ export default function Home() {
       {/* 7. MEET THE COACHES */}
       <Section className="bg-white !py-24 md:!py-32">
         <div className="max-w-4xl mx-auto mb-16 md:mb-20">
-          <h2 className="text-4xl md:text-7xl font-bold mb-6 md:mb-8 tracking-tighter">Meet The Coaches</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-8 tracking-tight">Meet The Coaches</h2>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
             You'll be guided by experienced coaches who have walked this path themselves. They bring decades of real world leadership experience, hard won wisdom, and genuine commitment to your transformation.
           </p>
@@ -528,7 +528,7 @@ export default function Home() {
       {/* 8. FROM OUR COHORTS - RESTORED */}
       <Section className="bg-gray-50 !py-24 md:!py-32 border-y border-gray-100">
         <div className="max-w-4xl mb-12 md:mb-16 px-4">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8 tracking-tighter">From Our Cohorts</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-8 tracking-tight">From Our Cohorts</h2>
           <p className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed">
             My journey with SKC has been game-changing and life-changing. 
             It allows you to fix things going wrong in your life and stop negative spirals; I recommend it to all my loved ones.
@@ -554,8 +554,8 @@ export default function Home() {
       </Section>
 
       {/* 9. ALUMNI VOICE - RESTORED 2-COLUMN GRID */}
-      <Section className="bg-white !py-24 md:!py-32">
-        <h2 className="text-4xl md:text-6xl font-bold mb-16 md:mb-20 tracking-tighter">Alumni Voice</h2>
+      <Section id="testimonials" className="bg-white !py-24 md:!py-32">
+        <h2 className="text-3xl md:text-5xl font-bold mb-16 md:mb-20 tracking-tight">Alumni Voice</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {[
             { n: 'Rajani Jalan', r: 'Director - CSR/PR, mPokket', q: 'CEP really helped me build my people pillar, understand that engaging with them is more important than instruction led leadership.', i: 'zSUT2308YU' },
@@ -574,10 +574,10 @@ export default function Home() {
         </div>
       </Section>
       {/* 10. FAQs - DARK SPLIT STYLE */}
-      <Section dark className="bg-[#282828] !py-24 md:!py-32 overflow-hidden">
+      <Section dark id="faqs" className="bg-[#282828] !py-24 md:!py-32 overflow-hidden">
         <div className="lg:grid lg:grid-cols-12 gap-12 md:gap-20">
            <div className="lg:col-span-4 self-start mb-12 md:mb-0">
-              <h2 className="text-7xl md:text-[14rem] font-bold opacity-10 text-white leading-none tracking-tighter">FAQs</h2>
+              <h2 className="text-5xl md:text-[10rem] font-bold opacity-10 text-white leading-none tracking-tight">FAQs</h2>
               <p className="text-gray-400 font-medium text-lg md:text-xl leading-relaxed mt-6 md:mt-10 pr-0 md:pr-4">
                 Everything you need to know about our personal admissions, how the program works, who it's for, and what to expect.
               </p>
@@ -618,14 +618,14 @@ export default function Home() {
       <Section className="bg-white !py-24 md:!py-40 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 md:mb-24">
-             <motion.h2 
-               initial={{ opacity: 0, scale: 0.9 }}
-               whileInView={{ opacity: 1, scale: 1 }}
-               viewport={{ once: true }}
-               className="text-5xl md:text-7xl font-black tracking-tighter mb-6 md:mb-8 uppercase text-[#DD654D]"
-             >
+              <motion.h2 
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-6xl font-bold tracking-tight mb-6 md:mb-8 uppercase text-[#DD654D]"
+              >
                 Event Gallery
-             </motion.h2>
+              </motion.h2>
              <p className="text-gray-600 text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed font-semibold">
                 Snapshots of transformation from our deep-dive workshops.
              </p>
@@ -671,7 +671,7 @@ export default function Home() {
       <Section className="bg-white !py-24 md:!py-40" id="contact">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-20">
            <div>
-              <h2 className="text-5xl md:text-9xl font-black mb-8 md:mb-10 tracking-tighter text-[#01162c] uppercase">Apply Now</h2>
+              <h2 className="text-4xl md:text-7xl font-bold mb-8 md:mb-10 tracking-tight text-[#01162c] uppercase">Apply Now</h2>
               <p className="text-xl md:text-2xl text-gray-500 font-medium leading-relaxed max-w-lg">
                 This is a curated program designed for a small group of founders. Apply below and we'll get back to you if there's a strong alignment.
               </p>
@@ -708,70 +708,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 13. FOOTER - MOCKUP STYLE */}
-      <footer className="bg-[#222222] text-white pt-20 md:pt-32 pb-12 md:pb-16">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-20 mb-20 md:mb-32">
-               <div className="sm:col-span-2 lg:col-span-1">
-                  <div className="flex items-center gap-3 mb-6 md:mb-8">
-                     <span className="text-2xl md:text-3xl font-black tracking-tighter">SKC.World</span>
-                  </div>
-                  <p className="text-gray-400 font-medium leading-relaxed">
-                     Conscious Entrepreneurship
-                  </p>
-               </div>
-               
-               <div>
-                  <h4 className="text-gray-500 font-bold uppercase tracking-widest text-xs mb-8 md:mb-10">About Program</h4>
-                  <ul className="space-y-4 md:space-y-6 text-lg md:text-xl font-medium">
-                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Program Structure</a></li>
-                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Upcoming Batches</a></li>
-                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Program Takeaways</a></li>
-                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Who Should Do It</a></li>
-                  </ul>
-               </div>
 
-               <div>
-                  <h4 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-8 md:mb-10">Registration</h4>
-                  <ul className="space-y-4 md:space-y-6 text-lg md:text-xl font-medium">
-                     <li><a href="#" className="hover:text-[#f26045] transition-colors">SKC Testimonials</a></li>
-                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Blog</a></li>
-                     <li><a href="#" className="hover:text-[#f26045] transition-colors">Contact Us</a></li>
-                  </ul>
-               </div>
-
-               <div>
-                  <h4 className="text-gray-500 font-bold uppercase tracking-widest text-sm mb-8 md:mb-10">Social With Us</h4>
-                  <motion.div 
-                    variants={staggerContainer}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    className="flex gap-4 md:gap-6"
-                  >
-                     {['facebook', 'linkedin', 'instagram', 'youtube'].map((social) => (
-                        <motion.a 
-                           key={social} 
-                           variants={fadeInUp}
-                           href="#" 
-                           className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#db644d] hover:border-[#db644d] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group"
-                        >
-                           <div className="w-5 h-5 md:w-6 md:h-6 bg-white/80 rounded-sm group-hover:bg-white transition-colors"></div>
-                        </motion.a>
-                     ))}
-                  </motion.div>
-               </div>
-            </div>
-
-            <div className="pt-12 md:pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-gray-500 font-medium text-sm md:text-base">
-               <p>© 2024. All Rights Reserved.</p>
-               <div className="flex gap-8 md:gap-12">
-                  <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                  <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
-               </div>
-            </div>
-         </div>
-      </footer>
     </div>
   );
 }

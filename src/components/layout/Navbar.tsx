@@ -6,13 +6,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Tools', path: '/tools' },
-    { name: 'Case Studies', path: '/case-studies' },
-    { name: 'Resources', path: '/resources' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'About the Program', path: '#about' },
+    { name: 'Organisational Shift', path: '#shifts' },
+    { name: 'Testimonials', path: '#testimonials' },
+    { name: 'FAQs', path: '#faqs' },
+    { name: 'Contact Us', path: '#contact' },
   ];
 
   return (
@@ -38,20 +36,20 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.name}
-                  to={link.path}
+                  href={link.path}
                   className="text-[#01162c] hover:text-[#f26045] font-medium text-sm transition-colors duration-200"
                 >
                   {link.name}
-                </Link>
+                </a>
               ))}
-              <Link
-                to="/contact"
+              <a
+                href="#contact"
                 className="bg-[#f26045] text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-[#d9533a] transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Apply Now
-              </Link>
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -71,23 +69,23 @@ export default function Navbar() {
           <div className="md:hidden bg-white border-t border-gray-100 animate-slide-down">
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
-                <Link
+                <a
                   key={link.name}
-                  to={link.path}
+                  href={link.path}
                   onClick={() => setIsOpen(false)}
                   className="block px-3 py-4 text-base font-medium text-[#01162c] hover:bg-gray-50 hover:text-[#f26045] rounded-md transition-colors"
                 >
                   {link.name}
-                </Link>
+                </a>
               ))}
               <div className="pt-4 px-3">
-                <Link
-                  to="/contact"
+                <a
+                  href="#contact"
                   onClick={() => setIsOpen(false)}
                   className="block w-full text-center bg-[#f26045] text-white px-6 py-3 rounded-full font-medium hover:bg-[#d9533a] transition-all"
                 >
                   Apply Now
-                </Link>
+                </a>
               </div>
             </div>
           </div>

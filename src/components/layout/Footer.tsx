@@ -26,21 +26,21 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Programs</Link></li>
-              <li><Link to="/tools" className="hover:text-white transition-colors">Frameworks</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">Our Story</Link></li>
+              <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">Program</a></li>
+              <li><a href="#shifts" className="hover:text-white transition-colors">Our Story</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors">Connect</a></li>
             </ul>
           </div>
 
           {/* Programs */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Programs</h3>
+            <h3 className="text-lg font-semibold mb-6">Sections</h3>
             <ul className="space-y-4 text-sm text-gray-400">
-              <li><Link to="/services" className="hover:text-white transition-colors">Conscious Entrepreneurship</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Leadership Intensive</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">CXO Coaching</Link></li>
-              <li><Link to="/services" className="hover:text-white transition-colors">Organizational Shift</Link></li>
+              <li><a href="#about" className="hover:text-white transition-colors">About the Program</a></li>
+              <li><a href="#shifts" className="hover:text-white transition-colors">Organisational Shift</a></li>
+              <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
+              <li><a href="#faqs" className="hover:text-white transition-colors">FAQs</a></li>
             </ul>
           </div>
 
