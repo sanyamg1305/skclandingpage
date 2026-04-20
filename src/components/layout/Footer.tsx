@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <div className="w-[140px] h-[50px] bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/8HJhNqE4Zo.png)] bg-contain bg-no-repeat grayscale invert"></div>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-400 leading-relaxed">
               Empowering leaders to navigate growth with clarity, conscious presence, and organizational wisdom.
             </p>
             <div className="flex space-x-4">
@@ -24,8 +24,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
-            <ul className="space-y-4 text-sm text-gray-400">
+            <h2 className="mb-6">Quick Links</h2>
+            <ul className="space-y-4 text-gray-400">
               <li><a href="#" className="hover:text-white transition-colors">Home</a></li>
               <li><a href="#about" className="hover:text-white transition-colors">Program</a></li>
               <li><a href="#shifts" className="hover:text-white transition-colors">Our Story</a></li>
@@ -35,8 +35,8 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Sections</h3>
-            <ul className="space-y-4 text-sm text-gray-400">
+            <h2 className="mb-6">Sections</h2>
+            <ul className="space-y-4 text-gray-400">
               <li><a href="#about" className="hover:text-white transition-colors">About the Program</a></li>
               <li><a href="#shifts" className="hover:text-white transition-colors">Organisational Shift</a></li>
               <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
@@ -46,8 +46,8 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Connect With Us</h3>
-            <ul className="space-y-4 text-sm text-gray-400">
+            <h2 className="mb-6">Connect With Us</h2>
+            <ul className="space-y-4 text-gray-400">
               <li className="flex items-start space-x-3">
                 <Mail size={18} className="text-[#f26045] shrink-0" />
                 <span>hello@myntmore.com</span>
@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 space-y-4 md:space-y-0">
+        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 space-y-4 md:space-y-0">
           <p>© {currentYear} Myntmore. All rights reserved.</p>
           <div className="flex space-x-6">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

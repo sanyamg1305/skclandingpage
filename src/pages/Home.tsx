@@ -2,12 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import Section from '../components/ui/Section';
 import { motion, AnimatePresence, useInView, animate } from 'framer-motion';
 import { 
-  ArrowRight, ArrowLeft, ChevronRight, Award, Users, BookOpen, Clock, 
-  PlayCircle, Download, CheckCircle2, Quote, Plus, Minus, Mail, Phone, MapPin, Send,
-  Target, Zap, RefreshCw, Shield
+  ArrowRight, ArrowLeft, Award, Users, BookOpen, Clock, 
+  CheckCircle2, Quote, Plus, Minus, Zap, Shield
 } from 'lucide-react';
-
-import NumberedPillars from '../components/ui/NumberedPillars';
 
 const CountUp = ({ value }: { value: string }) => {
   const numericValue = parseInt(value.replace(/[^0-9]/g, ''));
@@ -70,7 +67,12 @@ export default function Home() {
     { name: 'Chaitanya Kumar', role: 'Lead Coach', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/nv3Ap78TRT.png' },
     { name: 'Avdhesh Sharma', role: 'Executive Mentor', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/P3HAgwZXJD.png' },
     { name: 'Akshay Chandra', role: 'Leadership Consultant', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/rwXDaNWYad.png' },
-    { name: 'EW Abhishek Goel', role: 'Organizational Strategy', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/ERDY9BHhTO.png' },
+    { name: 'Abhishek Goel', role: 'Organizational Strategy', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/ERDY9BHhTO.png' },
+  ];
+
+  const testimonials = [
+    { n: 'Rajani Jalan', r: 'Director - CSR/PR, mPokket', q: 'CEP really helped me build my people pillar, understand that engaging with them is more important than instruction led leadership.', i: 'zSUT2308YU' },
+    { n: 'Tejas Jhaveri', r: 'Founder and CEO, Myntmore', q: 'I would recommend this highly to anyone, it\'s a game changer for anyone struggling with their business or their personal life.', i: 'PkhvDRjkqM' }
   ];
 
   const faqs = [
@@ -87,22 +89,22 @@ export default function Home() {
       <section className="relative min-h-[85vh] md:h-[90vh] flex items-center bg-[#282828] py-20 md:py-0">
         <div className="absolute inset-0 bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/xSDn9BZLCA.png)] bg-cover bg-center opacity-40"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight tracking-tight">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-white mb-6 md:mb-8">
             Conscious <br />
             <span className="text-[#f26045]">Entrepreneurship <br />Program™</span>
           </motion.h1>
-          <p className="text-base md:text-xl text-white/90 mb-10 font-medium max-w-2xl leading-relaxed">
+          <p className="text-white/90 mb-10 max-w-2xl">
             Built for leaders shaping businesses at scale. A cohort-based program for founders and CXOs ready to transform how they lead.
           </p>
           <div className="flex flex-col sm:flex-row gap-6">
-            <a href="#contact" className="bg-[#f26045] text-white px-10 py-5 rounded-full font-bold text-lg md:text-xl hover:bg-white hover:text-black transition-all text-center">Apply Now</a>
+            <a href="#contact" className="bg-[#f26045] text-white px-8 md:px-10 py-4 md:py-5 rounded-full hover:bg-white hover:text-black transition-all text-center">Apply Now</a>
           </div>
         </div>
       </section>
 
       {/* 2. PROGRAM LOOKS LIKE */}
-      <Section dark id="about" className="bg-[#282828] !py-24 md:!py-32">
-        <h2 className="text-2xl md:text-4xl font-semibold mb-12 md:mb-16 tracking-tight">What the Program Looks Like</h2>
+      <Section dark id="about" className="mesh-gradient !py-24 md:!py-40">
+        <h1 className="mb-12 md:mb-16">What the Program Looks Like</h1>
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
@@ -138,8 +140,8 @@ export default function Home() {
               variants={fadeInUp}
               className="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 items-start border-t border-white/10 pt-10 md:pt-12 first:border-0 first:pt-0"
             >
-               <div className="md:col-span-5"><h3 className="text-xl md:text-3xl font-semibold text-[#f26045]">{item.t}</h3></div>
-               <div className="md:col-span-7"><p className="text-lg md:text-2xl text-gray-400 font-medium leading-relaxed">{item.d}</p></div>
+               <div className="md:col-span-5"><h2 className="text-[#f26045]">{item.t}</h2></div>
+               <div className="md:col-span-7"><p className="text-gray-400">{item.d}</p></div>
             </motion.div>
           ))}
         </motion.div>
@@ -150,10 +152,10 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col">
-              <div className="text-5xl md:text-7xl font-bold text-[#db644d] mb-4 tracking-tighter">
+              <div className="font-h1 text-[#db644d] mb-4">
                 <CountUp value={stat.value} />
               </div>
-              <div className="text-[#01162c] font-bold text-xs md:text-sm uppercase tracking-[0.2em]">{stat.label}</div>
+              <div className="text-[#01162c] uppercase tracking-[0.2em]">{stat.label}</div>
               <div className="mt-6 h-px w-full bg-gray-100"></div>
             </div>
           ))}
@@ -164,12 +166,12 @@ export default function Home() {
       <Section className="bg-gray-50 !py-24 md:!py-32">
         <div className="flex flex-col lg:flex-row gap-16 md:gap-20">
           <div className="lg:w-1/2">
-             <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-10 tracking-tight leading-tight">Specially <br />Designed For</h2>
+             <h1 className="mb-8 md:mb-10 tracking-tight leading-tight uppercase">Specially <br />Designed For</h1>
              <div className="space-y-10 md:space-y-12 mt-12 md:mt-16">
                 {['Founders at Scale', 'CXOs in Transition', 'Second-Generation Leaders'].map((t, i) => (
                    <div key={i} className="border-l-4 border-[#f26045] pl-6 md:pl-8">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">{t}</h3>
-                      <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed">Leaders navigating rapid growth and expanded authority.</p>
+                      <h2 className="mb-3 md:mb-4">{t}</h2>
+                      <p className="text-gray-400">Leaders navigating rapid growth and expanded authority.</p>
                    </div>
                 ))}
              </div>
@@ -180,21 +182,21 @@ export default function Home() {
         </div>
       </Section>
       {/* 5. INSIDE THE PROGRAM - MOCKUP STYLE REFINED */}
-      <section className="relative py-24 md:py-32 lg:py-48 overflow-hidden bg-[#1a1a1a] border-none">
+      <section className="relative py-24 md:py-32 lg:py-48 overflow-hidden mesh-gradient border-none">
         <div className="absolute inset-0 z-0">
            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2a2a2a_0%,_#1a1a1a_100%)] opacity-40"></div>
         </div>
 
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <div className="flex justify-end mb-16 md:mb-24">
-             <motion.h2 
+             <motion.h1 
                initial={{ opacity: 0, x: 50 }}
                whileInView={{ opacity: 1, x: 0 }}
                viewport={{ once: true }}
-               className="text-3xl md:text-6xl font-bold text-white tracking-tight text-right uppercase"
+               className="text-white text-right uppercase"
              >
                 Inside The <br />Program
-             </motion.h2>
+             </motion.h1>
           </div>
 
           <div className="relative">
@@ -211,22 +213,22 @@ export default function Home() {
                initial="hidden"
                whileInView="show"
                viewport={{ once: true }}
-               className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 w-full"
+               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 w-full"
              >
-                <motion.div variants={fadeInUp} className="bg-[#DD654D] p-10 lg:p-16 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
+                <motion.div variants={fadeInUp} className="bg-[#DD654D] p-8 md:p-16 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
                    <div className="relative z-10">
-                      <h3 className="text-3xl md:text-5xl font-bold text-white mb-6">Mentoring</h3>
-                      <p className="text-lg md:text-2xl text-white/90 leading-relaxed font-medium">
+                      <h2 className="text-white mb-6">Mentoring</h2>
+                      <p className="text-white/90">
                          Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.
                       </p>
                    </div>
                    <div className="absolute bottom-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-white/10 rounded-tl-full translate-x-8 md:translate-x-12 translate-y-8 md:translate-y-12 group-hover:translate-x-4 md:group-hover:translate-x-8 group-hover:translate-y-4 md:group-hover:translate-y-8 transition-transform duration-500"></div>
                 </motion.div>
 
-                <motion.div variants={fadeInUp} className="bg-[#DD654D] p-10 lg:p-16 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                <motion.div variants={fadeInUp} className="bg-[#DD654D] p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden group">
                    <div className="relative z-10">
-                      <h3 className="text-3xl md:text-5xl font-bold text-white mb-6">Coaching</h3>
-                      <p className="text-lg md:text-2xl text-white/90 leading-relaxed font-medium">
+                      <h2 className="text-white mb-6">Coaching</h2>
+                      <p className="text-white/90">
                          Turning clarity into action. Coaching aligns intent with measurable results through structured guidance and consistent support.
                       </p>
                    </div>
@@ -242,14 +244,14 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
            <div className="grid lg:grid-cols-12 gap-16 md:gap-20 items-center">
               <div className="lg:col-span-7">
-                  <motion.h2 
+                  <motion.h1 
                    initial={{ opacity: 0, y: 30 }}
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
-                   className="text-3xl md:text-5xl font-bold text-white mb-12 md:mb-20 leading-tight tracking-tight"
+                   className="text-white mb-12 md:mb-20"
                  >
-                    What Shifts When <br />You Go Through CEP
-                 </motion.h2>
+                    What Shifts When <br className="hidden md:block" />You Go Through CEP
+                 </motion.h1>
 
                  <motion.div 
                    variants={staggerContainer}
@@ -267,8 +269,8 @@ export default function Home() {
                       <motion.div key={i} variants={fadeInUp} className="bg-[#DD654D] p-8 md:p-10 lg:p-12 rounded-[2rem] md:rounded-[2.5rem] h-full flex flex-col justify-between hover:translate-y-[-12px] hover:shadow-[0_20px_50px_rgba(221,101,77,0.3)] transition-all duration-500 group cursor-default">
                          <div className="mb-6 md:mb-8">{card.i}</div>
                          <div>
-                            <h4 className="text-white font-bold text-xl md:text-3xl mb-3 md:mb-4 leading-tight group-hover:translate-x-2 transition-transform duration-500">{card.t}</h4>
-                            <p className="text-white/80 text-base md:text-lg leading-relaxed">{card.d}</p>
+                            <h2 className="text-white mb-3 md:mb-4 group-hover:translate-x-2 transition-transform duration-500">{card.t}</h2>
+                            <p className="text-white/80">{card.d}</p>
                          </div>
                       </motion.div>
                     ))}
@@ -276,13 +278,13 @@ export default function Home() {
               </div>
 
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9, x: 50 }}
-                whileInView={{ opacity: 1, scale: 1, x: 0 }}
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1 }}
-                className="lg:col-span-5 relative mt-12 lg:mt-0"
+                className="lg:col-span-5 relative mt-6 md:mt-12 lg:mt-0"
               >
-                 <div className="absolute inset-0 bg-[#DD654D] rounded-[2rem] md:rounded-[3rem] translate-x-4 md:translate-x-6 translate-y-4 md:translate-y-6 lg:translate-x-12 lg:translate-y-12"></div>
+                 <div className="absolute inset-0 bg-[#DD654D] rounded-[2rem] md:rounded-[3rem] translate-x-2 translate-y-2 md:translate-x-6 md:translate-y-6 lg:translate-x-12 lg:translate-y-12"></div>
                  <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/5]">
                     <img 
                       src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/SMDzAwOLT1.png" 
@@ -308,18 +310,18 @@ export default function Home() {
 
 
       {/* 6. CEP IS RIGHT FOR YOU - MOCKUP STYLE */}
-      <Section dark className="bg-[#111111] !py-24 md:!py-32">
+      <Section dark className="mesh-gradient !py-24 md:!py-32">
         <div className="flex flex-col lg:flex-row gap-16 md:gap-20 items-center">
           <div className="lg:w-1/2">
-            <motion.h2 
+            <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6 md:mb-8 uppercase"
+              className="text-white mb-6 md:mb-8 uppercase"
             >
               Is CEP Right <br />For You?
-            </motion.h2>
-            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-xl">
+            </motion.h1>
+            <p className="text-gray-400 max-w-xl">
               This program is for founders who have already moved past the early survival phase and are now focused on building sustainable, scalable organisations.
             </p>
           </div>
@@ -339,7 +341,7 @@ export default function Home() {
                 className="flex items-center gap-5 md:gap-6 p-6 md:p-8 bg-white/5 rounded-[1.5rem] md:rounded-3xl border border-white/10 hover:bg-[#DD654D]/10 transition-all cursor-default group"
               >
                 <CheckCircle2 className="text-[#DD654D] group-hover:scale-110 transition-transform shrink-0" size={28} />
-                <span className="text-lg md:text-2xl font-bold">{text}</span>
+                <span className="font-bold flex-1">{text}</span>
               </motion.div>
             ))}
           </div>
@@ -365,14 +367,14 @@ export default function Home() {
 
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
             <div className="lg:w-1/3">
-              <motion.h2 
+              <motion.h1 
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="text-2xl md:text-4xl font-bold text-[#01162c] leading-tight tracking-tight"
+                className="text-[#01162c]"
               >
                 What You Graduate With <br />as a Leader
-              </motion.h2>
+              </motion.h1>
             </div>
             <div className="lg:w-2/3">
               <motion.div 
@@ -413,9 +415,9 @@ export default function Home() {
                       <div className="w-10 h-10 md:w-12 md:h-12 shrink-0">
                         <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
                       </div>
-                      <h3 className="text-xl md:text-2xl font-bold text-black">{item.title}</h3>
+                      <h2 className="text-black">{item.title}</h2>
                     </div>
-                    <p className="text-base md:text-lg text-[#01162c]/70 leading-relaxed">
+                    <p className="text-[#01162c]/70">
                       {item.desc}
                     </p>
                   </motion.div>
@@ -427,19 +429,19 @@ export default function Home() {
       </Section>
 
       {/* 8. ORGANISATIONAL SHIFTS */}
-      <div id="shifts" className="relative overflow-hidden bg-white">
-        <div className="flex flex-col lg:flex-row min-h-[500px] md:min-h-[600px]">
-          <div className="lg:w-3/5 bg-[#DD654D] py-16 px-6 md:px-24 flex flex-col justify-center gap-10 md:gap-12 text-white">
+      <div id="shifts" className="relative overflow-hidden bg-white border-y border-gray-100">
+        <div className="flex flex-col lg:flex-row min-h-[500px] md:min-h-[600px] w-full">
+          <div className="lg:w-3/5 bg-[#DD654D] py-16 md:py-24 px-6 sm:px-12 lg:px-24 flex flex-col justify-center gap-10 md:gap-14 text-white">
             <div className="space-y-4">
-              <motion.h2 
+                <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-5xl font-bold"
+                className="text-white"
               >
                 Organisational Shifts
-              </motion.h2>
-              <p className="text-lg md:text-2xl opacity-90">A transformational change in your leadership abilities.</p>
+              </motion.h1>
+              <p className="opacity-90">A transformational change in your leadership abilities.</p>
             </div>
 
             <motion.div 
@@ -463,9 +465,9 @@ export default function Home() {
                   <div className="w-10 h-10 md:w-12 md:h-12 shrink-0">
                     <img src={point.icon} alt={point.text} className="w-full h-full object-contain brightness-0 invert" />
                   </div>
-                  <span className="text-xl md:text-3xl font-medium leading-tight">
+                  <h2 className="flex-1 font-medium">
                     {point.text}
-                  </span>
+                  </h2>
                 </motion.div>
               ))}
             </motion.div>
@@ -481,7 +483,7 @@ export default function Home() {
               </a>
             </motion.div>
           </div>
-          <div className="lg:w-2/5 relative min-h-[400px]">
+          <div className="lg:w-2/5 relative min-h-[350px] md:min-h-[500px] lg:min-h-full">
             <img 
               src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/dd8bUjO8Fj.png" 
               alt="Leader" 
@@ -494,8 +496,8 @@ export default function Home() {
       {/* 7. MEET THE COACHES */}
       <Section className="bg-white !py-24 md:!py-32">
         <div className="max-w-4xl mx-auto mb-16 md:mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-8 tracking-tight">Meet The Coaches</h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
+          <h1 className="mb-6 md:mb-8">Meet The Coaches</h1>
+          <p className="text-gray-600">
             You'll be guided by experienced coaches who have walked this path themselves. They bring decades of real world leadership experience, hard won wisdom, and genuine commitment to your transformation.
           </p>
         </div>
@@ -517,8 +519,8 @@ export default function Home() {
                   <img src={c.img} alt={c.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                </div>
                <div className="p-6 md:p-8">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2 text-gray-900">{c.name}</h3>
-                  <p className="text-[#f26045] font-bold text-xs uppercase tracking-widest">{c.role}</p>
+                  <h2 className="mb-2 text-gray-900">{c.name}</h2>
+                  <p className="text-[#f26045] uppercase tracking-widest">{c.role}</p>
                </div>
             </motion.div>
           ))}
@@ -528,8 +530,8 @@ export default function Home() {
       {/* 8. FROM OUR COHORTS - RESTORED */}
       <Section className="bg-gray-50 !py-24 md:!py-32 border-y border-gray-100">
         <div className="max-w-4xl mb-12 md:mb-16 px-4">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 md:mb-8 tracking-tight">From Our Cohorts</h2>
-          <p className="text-lg md:text-xl text-gray-600 font-medium leading-relaxed">
+          <h1 className="mb-6 md:mb-8">From Our Cohorts</h1>
+          <p className="text-gray-600">
             My journey with SKC has been game-changing and life-changing. 
             It allows you to fix things going wrong in your life and stop negative spirals; I recommend it to all my loved ones.
           </p>
@@ -542,13 +544,17 @@ export default function Home() {
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8"
         >
           {['mbWqiATx4a', 'ok0RPeWAPr', 'DWumVWPDjj'].map((img, i) => (
-            <motion.img 
-              key={i} 
+            <motion.div 
+              key={i}
               variants={fadeInUp}
-              src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} 
-              alt="Cohort" 
-              className="rounded-3xl w-full aspect-[4/3] object-cover grayscale hover:grayscale-0 transition-all duration-1000 shadow-xl" 
-            />
+              className="rounded-2xl md:rounded-3xl overflow-hidden shadow-lg md:shadow-xl bg-gray-200 aspect-[4/3]"
+            >
+              <motion.img 
+                src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} 
+                alt="Cohort" 
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
+              />
+            </motion.div>
           ))}
         </motion.div>
       </Section>
@@ -557,28 +563,25 @@ export default function Home() {
       <Section id="testimonials" className="bg-white !py-24 md:!py-32">
         <h2 className="text-3xl md:text-5xl font-bold mb-16 md:mb-20 tracking-tight">Alumni Voice</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-          {[
-            { n: 'Rajani Jalan', r: 'Director - CSR/PR, mPokket', q: 'CEP really helped me build my people pillar, understand that engaging with them is more important than instruction led leadership.', i: 'zSUT2308YU' },
-            { n: 'Tejas Jhaveri', r: 'Founder and CEO, Myntmore', q: 'I would recommend this highly to anyone, it\'s a game changer for anyone struggling with their business or their personal life.', i: 'PkhvDRjkqM' }
-          ].map((t, i) => (
-            <div key={i} className="flex flex-col md:flex-row gap-8 md:gap-10 p-8 md:p-12 bg-gray-50 rounded-[2.5rem] md:rounded-[4rem] items-start hover:shadow-2xl transition-all duration-500">
-               <img src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${t.i}.png`} className="w-24 h-24 md:w-32 md:h-32 rounded-2xl md:rounded-[2rem] object-cover shadow-xl" alt={t.n} />
+          {testimonials.map((t, i) => (
+            <div key={i} className="flex flex-col md:flex-row gap-6 md:gap-10 p-6 md:p-12 bg-gray-50 rounded-3xl md:rounded-[4rem] items-start hover:shadow-2xl transition-all duration-500 overflow-hidden">
+               <img src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${t.i}.png`} className="w-20 h-20 md:w-32 md:h-32 rounded-xl md:rounded-[2rem] object-cover shadow-lg md:shadow-xl shrink-0" alt={t.n} />
                <div>
                   <Quote className="text-[#f26045] mb-4 md:mb-6 opacity-30" size={40} />
-                  <p className="text-xl md:text-2xl font-medium italic mb-6 md:mb-8 leading-relaxed text-[#01162c]">"{t.q}"</p>
-                  <h4 className="font-bold text-xl md:text-2xl mb-1">{t.n}</h4>
-                  <p className="text-[#f26045] text-[10px] md:text-xs font-bold uppercase tracking-widest">{t.r}</p>
+                  <p className="italic mb-6 md:mb-8 text-[#01162c]">"{t.q}"</p>
+                  <h2 className="mb-1">{t.n}</h2>
+                  <p className="text-[#f26045] uppercase tracking-widest">{t.r}</p>
                </div>
             </div>
           ))}
         </div>
       </Section>
       {/* 10. FAQs - DARK SPLIT STYLE */}
-      <Section dark id="faqs" className="bg-[#282828] !py-24 md:!py-32 overflow-hidden">
+      <Section dark id="faqs" className="mesh-gradient !py-24 md:!py-32 overflow-hidden">
         <div className="lg:grid lg:grid-cols-12 gap-12 md:gap-20">
            <div className="lg:col-span-4 self-start mb-12 md:mb-0">
-              <h2 className="text-5xl md:text-[10rem] font-bold opacity-10 text-white leading-none tracking-tight">FAQs</h2>
-              <p className="text-gray-400 font-medium text-lg md:text-xl leading-relaxed mt-6 md:mt-10 pr-0 md:pr-4">
+              <h1 className="opacity-10 text-white uppercase !text-[5rem] md:!text-[10rem]">FAQs</h1>
+              <p className="text-gray-400 mt-6 md:mt-10 pr-0 md:pr-4">
                 Everything you need to know about our personal admissions, how the program works, who it's for, and what to expect.
               </p>
            </div>
@@ -587,9 +590,9 @@ export default function Home() {
                 <div key={i} className="py-6 md:py-8 group cursor-pointer flex flex-col justify-center transition-all">
                   <div 
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="flex justify-between items-center text-xl md:text-3xl font-bold py-3 md:py-4 text-white/90 hover:text-[#f26045] transition-colors"
+                    className="flex justify-between items-center py-3 md:py-4 text-white/90 hover:text-[#f26045] transition-colors"
                   >
-                    <span className="max-w-[85%]">{f.q}</span>
+                    <h2 className="max-w-[85%] !text-[1.5rem] md:!text-[2rem]">{f.q}</h2>
                     {openFaq === i ? <Minus size={24} md:size={32} className="shrink-0" /> : <Plus size={24} md:size={32} className="shrink-0" />}
                   </div>
                   
@@ -618,15 +621,15 @@ export default function Home() {
       <Section className="bg-white !py-24 md:!py-40 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 md:mb-24">
-              <motion.h2 
+              <motion.h1 
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-6xl font-bold tracking-tight mb-6 md:mb-8 uppercase text-[#DD654D]"
+                className="mb-6 md:mb-8 uppercase text-[#DD654D]"
               >
                 Event Gallery
-              </motion.h2>
-             <p className="text-gray-600 text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed font-semibold">
+              </motion.h1>
+             <p className="text-gray-600 max-w-3xl mx-auto font-semibold">
                 Snapshots of transformation from our deep-dive workshops.
              </p>
           </div>
@@ -645,16 +648,20 @@ export default function Home() {
                initial="hidden"
                whileInView="show"
                viewport={{ once: true }}
-               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-hidden"
              >
                 {['KEa1R2q9Oe', 'Nm1MLGKF3A', 'aX2JGytTv3', 'eTMHXoGtkJ', '5dGtP4QHLh', 'QKq988ujHM'].map((img, i) => (
-                   <motion.img 
-                     key={i} 
-                     variants={fadeInUp} 
-                     src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} 
-                     className="rounded-[2rem] md:rounded-[2.5rem] w-full aspect-[4/3] object-cover shadow-2xl hover:brightness-110 transition-all duration-500 cursor-zoom-in" 
-                     alt="Event" 
-                   />
+                  <motion.div 
+                    key={i} 
+                    variants={fadeInUp}
+                    className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[4/3] bg-gray-100 shadow-md md:shadow-lg"
+                  >
+                    <motion.img 
+                      src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} 
+                      alt="Gallery" 
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                    />
+                  </motion.div>
                 ))}
              </motion.div>
           </div>
@@ -671,8 +678,8 @@ export default function Home() {
       <Section className="bg-white !py-24 md:!py-40" id="contact">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-20">
            <div>
-              <h2 className="text-4xl md:text-7xl font-bold mb-8 md:mb-10 tracking-tight text-[#01162c] uppercase">Apply Now</h2>
-              <p className="text-xl md:text-2xl text-gray-500 font-medium leading-relaxed max-w-lg">
+              <h1 className="mb-8 md:mb-10 text-[#01162c] uppercase">Apply Now</h1>
+              <p className="text-gray-500 max-w-lg">
                 This is a curated program designed for a small group of founders. Apply below and we'll get back to you if there's a strong alignment.
               </p>
            </div>

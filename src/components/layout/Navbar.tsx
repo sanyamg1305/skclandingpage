@@ -17,10 +17,13 @@ export default function Navbar() {
     <header className="w-full flex flex-col z-50">
       {/* Announcement Bar */}
       <div className="w-full bg-[#f66e49] py-2 overflow-hidden whitespace-nowrap">
-        <div className="animate-marquee inline-block text-white font-semibold text-sm md:text-base">
+        <div className="animate-marquee inline-block text-white font-semibold">
           Applications Open | Conscious Entrepreneurship Program™ 2026 &nbsp;&nbsp;&nbsp;&nbsp;
           Applications Open | Conscious Entrepreneurship Program™ 2026 &nbsp;&nbsp;&nbsp;&nbsp;
-          Applications Open | Conscious Entrepreneurship Program™ 2026
+          Applications Open | Conscious Entrepreneurship Program™ 2026 &nbsp;&nbsp;&nbsp;&nbsp;
+          Applications Open | Conscious Entrepreneurship Program™ 2026 &nbsp;&nbsp;&nbsp;&nbsp;
+          Applications Open | Conscious Entrepreneurship Program™ 2026 &nbsp;&nbsp;&nbsp;&nbsp;
+          Applications Open | Conscious Entrepreneurship Program™ 2026 &nbsp;&nbsp;&nbsp;&nbsp;
         </div>
       </div>
 
@@ -39,14 +42,14 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.path}
-                  className="text-[#01162c] hover:text-[#f26045] font-medium text-sm transition-colors duration-200"
+                  className="text-[#01162c] hover:text-[#f26045] font-medium transition-colors duration-200"
                 >
                   {link.name}
                 </a>
               ))}
               <a
                 href="#contact"
-                className="bg-[#f26045] text-white px-6 py-2.5 rounded-full font-medium text-sm hover:bg-[#d9533a] transition-all duration-300 shadow-md hover:shadow-lg"
+                className="bg-[#f26045] text-white px-6 py-2.5 rounded-full font-medium hover:bg-[#d9533a] transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Apply Now
               </a>
@@ -73,7 +76,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.path}
                   onClick={() => setIsOpen(false)}
-                  className="block px-3 py-4 text-base font-medium text-[#01162c] hover:bg-gray-50 hover:text-[#f26045] rounded-md transition-colors"
+                  className="block px-3 py-4 font-medium text-[#01162c] hover:bg-gray-50 hover:text-[#f26045] rounded-md transition-colors"
                 >
                   {link.name}
                 </a>
