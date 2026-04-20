@@ -472,10 +472,10 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 8. ORGANISATIONAL SHIFTS */}
-      <div id="shifts" className="relative overflow-hidden bg-white border-y border-gray-100">
-        <div className="flex flex-col lg:flex-row min-h-[600px] w-full">
-          <div className="lg:w-1/2 bg-[#DD654D] py-20 md:py-32 px-6 sm:px-12 lg:px-24 flex flex-col justify-center gap-10 md:gap-14 text-white">
+      {/* 8. ORGANISATIONAL SHIFTS - REDESIGNED FOR BETTER VISIBILITY */}
+      <Section id="shifts" className="!bg-[#DD654D] !text-white !py-24 md:!py-32">
+        <div className="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+          <div className="flex flex-col justify-center gap-10 md:gap-14">
             <div className="space-y-4">
                 <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
@@ -485,7 +485,7 @@ export default function Home() {
               >
                 Organisational Shifts
               </motion.h1>
-              <p className="opacity-90 max-w-lg">A transformational change in your leadership abilities, moving your organization toward sustainable growth and distributed ownership.</p>
+              <p className="opacity-90 max-w-lg text-[1rem] md:text-[1.25rem]">A transformational change in your leadership abilities, moving your organization toward sustainable growth and distributed ownership.</p>
             </div>
 
             <motion.div 
@@ -509,7 +509,7 @@ export default function Home() {
                   <div className="w-10 h-10 md:w-12 md:h-12 shrink-0">
                     <img src={point.icon} alt={point.text} className="w-full h-full object-contain brightness-0 invert" />
                   </div>
-                  <h2 className="flex-1 font-medium">
+                  <h2 className="flex-1 font-medium !text-[1.1rem] md:!text-[1.75rem]">
                     {point.text}
                   </h2>
                 </motion.div>
@@ -520,22 +520,23 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="mt-8"
+              className="mt-4"
             >
               <a href="#contact" className="bg-white text-black px-12 py-5 rounded-full font-bold text-xl hover:bg-black hover:text-white transition-all inline-block shadow-2xl">
                 Apply Now
               </a>
             </motion.div>
           </div>
-          <div className="lg:w-1/2 relative min-h-[400px] md:min-h-[500px] lg:min-h-full bg-gray-100">
+          
+          <div className="relative h-full min-h-[400px] md:min-h-[600px]">
             <img 
               src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/dd8bUjO8Fj.png" 
               alt="Leader" 
-              className="absolute inset-0 w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000"
+              className="rounded-[2.5rem] md:rounded-[4rem] w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl"
             />
           </div>
         </div>
-      </div>
+      </Section>
 
       {/* 7. MEET THE COACHES */}
       <Section className="bg-white !py-24 md:!py-32">
