@@ -180,10 +180,10 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col items-center text-center md:items-start md:text-left">
-              <div className="font-h2 text-[#db644d] mb-4">
+              <div className="text-[2.5rem] md:text-[4.5rem] font-bold text-[#db644d] mb-2 leading-none">
                 <CountUp value={stat.value} />
               </div>
-              <div className="text-[#01162c] uppercase tracking-[0.2em]">{stat.label}</div>
+              <div className="text-[#01162c] uppercase tracking-[0.2em] text-[0.7rem] md:text-sm font-bold">{stat.label}</div>
               <div className="mt-6 h-px w-full bg-gray-100"></div>
             </div>
           ))}
