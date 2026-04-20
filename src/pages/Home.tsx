@@ -11,7 +11,7 @@ const CountUp = ({ value }: { value: string }) => {
   const suffix = value.replace(/[0-9]/g, '');
   const [count, setCount] = useState(0);
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+  const inView = useInView(ref, { once: true, amount: 0.2 });
 
   useEffect(() => {
     if (inView) {
@@ -179,8 +179,8 @@ export default function Home() {
       <Section className="bg-white !py-24 md:!py-32">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {stats.map((stat, i) => (
-            <div key={i} className="flex flex-col">
-              <div className="font-h1 text-[#db644d] mb-4">
+            <div key={i} className="flex flex-col items-center text-center md:items-start md:text-left">
+              <div className="font-h2 text-[#db644d] mb-4">
                 <CountUp value={stat.value} />
               </div>
               <div className="text-[#01162c] uppercase tracking-[0.2em]">{stat.label}</div>
