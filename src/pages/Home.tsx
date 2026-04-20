@@ -244,7 +244,7 @@ export default function Home() {
 
              <div className="overflow-hidden px-4">
                 <motion.div 
-                   animate={{ x: `-${pillarIndex * (100 / (window.innerWidth < 768 ? 2 : 2))}%` }}
+                   animate={{ x: `-${pillarIndex * (100 / (window.innerWidth < 768 ? 2 : 3))}%` }}
                    transition={{ type: "tween", duration: 0.8, ease: "easeInOut" }}
                    className="flex items-stretch gap-4 md:gap-10"
                 >
@@ -256,11 +256,11 @@ export default function Home() {
                    ].map((item, i) => (
                       <div 
                         key={i} 
-                        className="min-w-[calc(50%-0.5rem)] md:min-w-[calc(50%-1.25rem)] bg-[#DD654D] p-6 md:p-16 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group flex flex-col justify-center min-h-[320px] md:min-h-[480px]"
+                        className="min-w-[calc(50%-0.5rem)] md:min-w-[calc(33.333%-1.5rem)] bg-[#DD654D] p-6 md:p-12 rounded-[1.5rem] md:rounded-[2rem] shadow-2xl relative overflow-hidden group flex flex-col justify-center min-h-[240px] md:min-h-[380px]"
                       >
                          <div className="relative z-10">
-                            <h2 className="text-white mb-4 md:mb-8 !text-[1.25rem] md:!text-[3rem] font-bold">{item.t}</h2>
-                            <p className="text-white/90 text-sm md:text-xl leading-relaxed line-clamp-4 md:line-clamp-none">
+                            <h2 className="text-white mb-4 md:mb-6 !text-[1.1rem] md:!text-[1.75rem] font-bold">{item.t}</h2>
+                            <p className="text-white/90 text-xs md:text-lg leading-relaxed line-clamp-4 md:line-clamp-none">
                                {item.d}
                             </p>
                          </div>
