@@ -89,13 +89,18 @@ export default function Home() {
       <section className="relative min-h-[85vh] md:h-[90vh] flex items-center bg-[#282828] py-20 md:py-0">
         <div className="absolute inset-0 bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/xSDn9BZLCA.png)] bg-cover bg-center opacity-40"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-white mb-6 md:mb-8">
-            Conscious <br />
-            <span className="text-[#f26045]">Entrepreneurship <br />Program™</span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            className="text-white mb-10"
+          >
+            <span className="block text-[4rem] md:text-[7rem] font-bold leading-[0.9] mb-4">Conscious</span>
+            <span className="block text-[#f26045] text-[1.5rem] md:text-[2.5rem] font-bold uppercase tracking-[0.2em] mb-2">Entrepreneurship</span>
+            <span className="block text-[#f26045] text-[1.25rem] md:text-[2rem] font-bold uppercase tracking-[0.1em] mb-10">Program™</span>
+            <span className="block text-white/90 text-lg md:text-2xl font-medium max-w-2xl leading-relaxed normal-case tracking-normal">
+              Built for leaders shaping businesses at scale. A cohort-based program for founders and CXOs ready to transform how they lead.
+            </span>
           </motion.h1>
-          <p className="text-white/90 mb-10 max-w-2xl">
-            Built for leaders shaping businesses at scale. A cohort-based program for founders and CXOs ready to transform how they lead.
-          </p>
           <div className="flex flex-col sm:flex-row gap-6">
             <a href="#contact" className="bg-[#f26045] text-white px-8 md:px-10 py-4 md:py-5 rounded-full hover:bg-white hover:text-black transition-all text-center">Apply Now</a>
           </div>
