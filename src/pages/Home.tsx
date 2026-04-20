@@ -59,10 +59,10 @@ export default function Home() {
   useEffect(() => {
     const coachTimer = setInterval(() => {
       setCoachIndex((prev) => (prev + 1) % 5);
-    }, 5000);
+    }, 3000);
     const pillarTimer = setInterval(() => {
       setPillarIndex((prev) => (prev + 1) % 4);
-    }, 6000);
+    }, 3000);
     return () => {
       clearInterval(coachTimer);
       clearInterval(pillarTimer);
@@ -177,7 +177,7 @@ export default function Home() {
 
       {/* 3. STATS */}
       <Section className="bg-white !py-24 md:!py-32">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col items-center text-center md:items-start md:text-left">
               <div className="font-h2 text-[#db644d] mb-4">
@@ -244,9 +244,9 @@ export default function Home() {
 
              <div className="overflow-hidden px-4">
                 <motion.div 
-                   animate={{ x: `-${pillarIndex * (100 / (window.innerWidth < 768 ? 1 : 2))}%` }}
-                   transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                   className="flex gap-6 md:gap-10"
+                   animate={{ x: `-${pillarIndex * (100 / (window.innerWidth < 768 ? 2 : 2))}%` }}
+                   transition={{ type: "tween", duration: 0.8, ease: "easeInOut" }}
+                   className="flex gap-4 md:gap-10"
                 >
                    {[
                      { t: 'Mentoring', d: 'Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.' },
@@ -256,15 +256,15 @@ export default function Home() {
                    ].map((item, i) => (
                       <div 
                         key={i} 
-                        className="min-w-full md:min-w-[calc(50%-1.25rem)] bg-[#DD654D] p-8 md:p-16 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group h-full flex flex-col justify-center"
+                        className="min-w-[calc(50%-0.5rem)] md:min-w-[calc(50%-1.25rem)] bg-[#DD654D] p-6 md:p-16 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group h-full flex flex-col justify-center"
                       >
                          <div className="relative z-10">
-                            <h2 className="text-white mb-6 md:mb-8 !text-[2rem] md:!text-[3rem] font-bold">{item.t}</h2>
-                            <p className="text-white/90 text-lg md:text-xl leading-relaxed">
+                            <h2 className="text-white mb-4 md:mb-8 !text-[1.25rem] md:!text-[3rem] font-bold">{item.t}</h2>
+                            <p className="text-white/90 text-sm md:text-xl leading-relaxed line-clamp-4 md:line-clamp-none">
                                {item.d}
                             </p>
                          </div>
-                         <div className="absolute bottom-0 right-0 w-32 md:w-48 h-32 md:h-48 bg-white/10 rounded-tl-full translate-x-12 md:translate-x-20 translate-y-12 md:translate-y-20 group-hover:translate-x-8 md:group-hover:translate-x-12 group-hover:translate-y-8 md:group-hover:translate-y-12 transition-transform duration-500"></div>
+                         <div className="absolute bottom-0 right-0 w-24 md:w-48 h-24 md:h-48 bg-white/10 rounded-tl-full translate-x-12 md:translate-x-20 translate-y-12 md:translate-y-20 group-hover:translate-x-8 md:group-hover:translate-x-12 group-hover:translate-y-8 md:group-hover:translate-y-12 transition-transform duration-500"></div>
                       </div>
                    ))}
                 </motion.div>
@@ -548,21 +548,21 @@ export default function Home() {
         
         <div className="relative overflow-hidden px-4">
           <motion.div 
-            animate={{ x: `-${coachIndex * (100 / (window.innerWidth < 768 ? 1 : 3))}%` }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="flex gap-6 md:gap-8"
+            animate={{ x: `-${coachIndex * (100 / (window.innerWidth < 768 ? 2 : 3))}%` }}
+            transition={{ type: "tween", duration: 0.8, ease: "easeInOut" }}
+            className="flex gap-4 md:gap-8"
           >
             {coaches.map((c, i) => (
               <div 
                 key={i} 
-                className="min-w-full md:min-w-[calc(33.333%-1.5rem)] group bg-white rounded-2xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl transition-all duration-500 border border-gray-100"
+                className="min-w-[calc(50%-0.5rem)] md:min-w-[calc(33.333%-1.5rem)] group bg-white rounded-2xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl transition-all duration-500 border border-gray-100"
               >
                  <div className="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
                     <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                  </div>
-                 <div className="p-6 md:p-8">
-                    <h2 className="mb-2 text-gray-900">{c.name}</h2>
-                    <p className="text-[#f26045] uppercase tracking-widest">{c.role}</p>
+                 <div className="p-4 md:p-8">
+                    <h2 className="mb-1 md:mb-2 text-gray-900 !text-[1.1rem] md:!text-[2rem]">{c.name}</h2>
+                    <p className="text-[#f26045] uppercase tracking-widest text-[0.65rem] md:text-sm">{c.role}</p>
                  </div>
               </div>
             ))}
@@ -594,7 +594,7 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8"
+          className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8"
         >
           {['mbWqiATx4a', 'ok0RPeWAPr', 'DWumVWPDjj'].map((img, i) => (
             <motion.div 
@@ -670,8 +670,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 11. EVENT GALLERY - MOCKUP STYLE REFINED */}
-      <Section className="bg-white !py-24 md:!py-40 overflow-hidden relative">
+      {/* 11. EVENT GALLERY - MOCKUP STYLE REFINED */}      <Section className="bg-white !py-24 md:!py-40 overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 md:mb-24">
               <motion.h1 
@@ -688,7 +687,7 @@ export default function Home() {
           </div>
 
           <div className="mb-20">
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+             <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-12">
                 {videoTestimonials.map((v, i) => (
                    <motion.div 
                      key={i}
@@ -696,7 +695,7 @@ export default function Home() {
                      initial="hidden"
                      whileInView="show"
                      viewport={{ once: true }}
-                     className="bg-gray-50 rounded-[2rem] overflow-hidden shadow-xl border border-gray-100 flex flex-col h-full"
+                     className="bg-gray-50 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-xl border border-gray-100 flex flex-col h-full"
                    >
                       <div className="aspect-video w-full bg-black leading-none">
                          <iframe 
@@ -706,9 +705,9 @@ export default function Home() {
                            allowFullScreen
                          ></iframe>
                       </div>
-                      <div className="p-8 md:p-10 flex-1">
-                         <h2 className="mb-2 text-[#01162c]">{v.name}</h2>
-                         <p className="text-[#f26045] text-base md:text-lg uppercase tracking-wider font-bold">{v.role}</p>
+                      <div className="p-4 md:p-10 flex-1">
+                         <h2 className="mb-1 text-[#01162c] !text-[0.9rem] md:!text-[2rem] leading-tight">{v.name}</h2>
+                         <p className="text-[#f26045] text-[0.6rem] md:text-lg uppercase tracking-wider font-bold">{v.role}</p>
                       </div>
                    </motion.div>
                 ))}
@@ -729,13 +728,13 @@ export default function Home() {
                initial="hidden"
                whileInView="show"
                viewport={{ once: true }}
-               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-hidden"
+               className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 overflow-hidden"
              >
                 {['KEa1R2q9Oe', 'Nm1MLGKF3A', 'aX2JGytTv3', 'eTMHXoGtkJ', '5dGtP4QHLh', 'QKq988ujHM'].map((img, i) => (
                   <motion.div 
                     key={i} 
                     variants={fadeInUp}
-                    className="rounded-2xl md:rounded-3xl overflow-hidden aspect-[4/3] bg-gray-100 shadow-md md:shadow-lg"
+                    className="rounded-xl md:rounded-3xl overflow-hidden aspect-[4/3] bg-gray-100 shadow-md md:shadow-lg"
                   >
                     <motion.img 
                       src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} 
@@ -754,6 +753,7 @@ export default function Home() {
           </div>
         </div>
       </Section>
+
 
       {/* 12. FINAL APPLICATION FORM - MOCKUP STYLE */}
       <Section className="bg-white !py-24 md:!py-40" id="contact">
