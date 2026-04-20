@@ -451,8 +451,8 @@ export default function Home() {
 
       {/* 8. ORGANISATIONAL SHIFTS */}
       <div id="shifts" className="relative overflow-hidden bg-white border-y border-gray-100">
-        <div className="flex flex-col lg:flex-row min-h-[500px] md:min-h-[600px] w-full">
-          <div className="lg:w-3/5 bg-[#DD654D] py-16 md:py-24 px-6 sm:px-12 lg:px-24 flex flex-col justify-center gap-10 md:gap-14 text-white">
+        <div className="flex flex-col lg:flex-row min-h-[600px] w-full">
+          <div className="lg:w-1/2 bg-[#DD654D] py-20 md:py-32 px-6 sm:px-12 lg:px-24 flex flex-col justify-center gap-10 md:gap-14 text-white">
             <div className="space-y-4">
                 <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
@@ -462,7 +462,7 @@ export default function Home() {
               >
                 Organisational Shifts
               </motion.h1>
-              <p className="opacity-90">A transformational change in your leadership abilities.</p>
+              <p className="opacity-90 max-w-lg">A transformational change in your leadership abilities, moving your organization toward sustainable growth and distributed ownership.</p>
             </div>
 
             <motion.div 
@@ -499,16 +499,16 @@ export default function Home() {
               viewport={{ once: true }}
               className="mt-8"
             >
-              <a href="#contact" className="bg-white text-black px-12 py-5 rounded-full font-bold text-xl hover:bg-black hover:text-white transition-all inline-block">
+              <a href="#contact" className="bg-white text-black px-12 py-5 rounded-full font-bold text-xl hover:bg-black hover:text-white transition-all inline-block shadow-2xl">
                 Apply Now
               </a>
             </motion.div>
           </div>
-          <div className="lg:w-2/5 relative min-h-[350px] md:min-h-[500px] lg:min-h-full">
+          <div className="lg:w-1/2 relative min-h-[400px] md:min-h-[500px] lg:min-h-full bg-gray-100">
             <img 
               src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/dd8bUjO8Fj.png" 
               alt="Leader" 
-              className="absolute inset-0 w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-1000"
+              className="absolute inset-0 w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000"
             />
           </div>
         </div>
