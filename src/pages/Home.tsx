@@ -101,10 +101,10 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }} 
             className="text-white mb-10"
           >
-            <span className="block text-[4rem] md:text-[7rem] font-bold leading-[0.9] mb-4">Conscious</span>
-            <span className="block text-[#f26045] text-[1.5rem] md:text-[2.5rem] font-bold uppercase tracking-[0.2em] mb-2">Entrepreneurship</span>
-            <span className="block text-[#f26045] text-[1.25rem] md:text-[2rem] font-bold uppercase tracking-[0.1em] mb-10">Program™</span>
-            <span className="block text-white/90 text-lg md:text-2xl font-medium max-w-2xl leading-relaxed normal-case tracking-normal">
+            <span className="block text-[3rem] md:text-[5.5rem] font-bold leading-[0.9] mb-4">Conscious</span>
+            <span className="block text-[#f26045] text-[1.25rem] md:text-[2rem] font-bold uppercase tracking-[0.2em] mb-2">Entrepreneurship</span>
+            <span className="block text-[#f26045] text-[1.1rem] md:text-[1.75rem] font-bold uppercase tracking-[0.1em] mb-10">Program™</span>
+            <span className="block text-white/90 text-base md:text-xl font-medium max-w-2xl leading-relaxed normal-case tracking-normal">
               Built for leaders shaping businesses at scale. A cohort-based program for founders and CXOs ready to transform how they lead.
             </span>
           </motion.h1>
@@ -573,7 +573,7 @@ export default function Home() {
 
       {/* 9. ALUMNI VOICE - RESTORED 2-COLUMN GRID */}
       <Section id="testimonials" className="bg-white !py-24 md:!py-32">
-        <h2 className="text-3xl md:text-5xl font-bold mb-16 md:mb-20 tracking-tight">Alumni Voice</h2>
+        <h2 className="text-[2.25rem] md:text-[3.25rem] font-bold mb-16 md:mb-20 tracking-tight">Alumni Voice</h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {testimonials.map((t, i) => (
             <div key={i} className="flex flex-col md:flex-row gap-6 md:gap-10 p-6 md:p-12 bg-gray-50 rounded-3xl md:rounded-[4rem] items-start hover:shadow-2xl transition-all duration-500 overflow-hidden">
@@ -592,7 +592,7 @@ export default function Home() {
       <Section dark id="faqs" className="mesh-gradient !py-24 md:!py-32 overflow-hidden">
         <div className="lg:grid lg:grid-cols-12 gap-12 md:gap-20">
            <div className="lg:col-span-4 self-start mb-12 md:mb-0">
-              <h1 className="opacity-10 text-white uppercase !text-[5rem] md:!text-[10rem]">FAQs</h1>
+              <h1 className="opacity-10 text-white uppercase !text-[4rem] md:!text-[8rem]">FAQs</h1>
               <p className="text-gray-400 mt-6 md:mt-10 pr-0 md:pr-4">
                 Everything you need to know about our personal admissions, how the program works, who it's for, and what to expect.
               </p>
@@ -604,7 +604,7 @@ export default function Home() {
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="flex justify-between items-center py-3 md:py-4 text-white/90 hover:text-[#f26045] transition-colors"
                   >
-                    <h2 className="max-w-[85%] !text-[1.5rem] md:!text-[2rem]">{f.q}</h2>
+                    <h2 className="max-w-[85%] !text-[1.25rem] md:!text-[1.75rem]">{f.q}</h2>
                     {openFaq === i ? <Minus size={24} md:size={32} className="shrink-0" /> : <Plus size={24} md:size={32} className="shrink-0" />}
                   </div>
                   
