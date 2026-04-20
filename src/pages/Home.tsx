@@ -726,11 +726,6 @@ export default function Home() {
                 ))}
              </motion.div>
   
-           <div className="flex justify-center mt-16 md:mt-24">
-             <button className="px-10 py-4 md:px-16 md:py-5 bg-white text-[#DD654D] hover:bg-black hover:text-white rounded-full font-black text-xl md:text-2xl transition-all shadow-2xl">
-                See More
-             </button>
-          </div>
         </div>
       </Section>
 
