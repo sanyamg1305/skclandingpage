@@ -53,6 +53,14 @@ const fadeInUp = {
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [coachIndex, setCoachIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCoachIndex((prev) => (prev + 1) % coaches.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   const stats = [
     { label: 'Founders & CXOs Guided', value: '1000+', icon: <Users className="text-[#db644d]" size={32} /> },
@@ -68,6 +76,7 @@ export default function Home() {
     { name: 'Avdhesh Sharma', role: 'Executive Mentor', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/P3HAgwZXJD.png' },
     { name: 'Akshay Chandra', role: 'Leadership Consultant', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/rwXDaNWYad.png' },
     { name: 'Abhishek Goel', role: 'Organizational Strategy', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/ERDY9BHhTO.png' },
+    { name: 'Mrinal Sinha', role: 'Strategic Coach', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop' },
   ];
 
   const testimonials = [
@@ -514,29 +523,38 @@ export default function Home() {
           </p>
         </div>
         
-        <motion.div 
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
-        >
-          {coaches.map((c, i) => (
-            <motion.div 
-              key={i} 
-              variants={fadeInUp} 
-              className="group bg-white rounded-2xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl transition-all duration-500 border border-gray-100"
-            >
-               <div className="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                  <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
-               </div>
-               <div className="p-6 md:p-8">
-                  <h2 className="mb-2 text-gray-900">{c.name}</h2>
-                  <p className="text-[#f26045] uppercase tracking-widest">{c.role}</p>
-               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="relative overflow-hidden px-4">
+          <motion.div 
+            animate={{ x: `-${coachIndex * (100 / (window.innerWidth < 768 ? 1 : 3))}%` }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="flex gap-6 md:gap-8"
+          >
+            {coaches.map((c, i) => (
+              <div 
+                key={i} 
+                className="min-w-full md:min-w-[calc(33.333%-1.5rem)] group bg-white rounded-2xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl transition-all duration-500 border border-gray-100"
+              >
+                 <div className="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+                    <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+                 </div>
+                 <div className="p-6 md:p-8">
+                    <h2 className="mb-2 text-gray-900">{c.name}</h2>
+                    <p className="text-[#f26045] uppercase tracking-widest">{c.role}</p>
+                 </div>
+              </div>
+            ))}
+          </motion.div>
+          
+          <div className="flex justify-center gap-2 mt-12">
+            {coaches.map((_, i) => (
+              <button 
+                key={i} 
+                onClick={() => setCoachIndex(i)}
+                className={`w-3 h-3 rounded-full transition-all ${coachIndex === i ? 'bg-[#f26045] w-8' : 'bg-gray-300'}`}
+              />
+            ))}
+          </div>
+        </div>
       </Section>
 
       {/* 8. FROM OUR COHORTS - RESTORED */}
