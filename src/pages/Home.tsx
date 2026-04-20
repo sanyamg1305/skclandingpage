@@ -54,12 +54,19 @@ const fadeInUp = {
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [coachIndex, setCoachIndex] = useState(0);
+  const [pillarIndex, setPillarIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCoachIndex((prev) => (prev + 1) % coaches.length);
-    }, 4000);
-    return () => clearInterval(timer);
+    const coachTimer = setInterval(() => {
+      setCoachIndex((prev) => (prev + 1) % 5);
+    }, 5000);
+    const pillarTimer = setInterval(() => {
+      setPillarIndex((prev) => (prev + 1) % 4);
+    }, 6000);
+    return () => {
+      clearInterval(coachTimer);
+      clearInterval(pillarTimer);
+    };
   }, []);
 
   const stats = [
@@ -222,40 +229,56 @@ export default function Home() {
 
           <div className="relative">
              {/* Navigation - Hidden on mobile, shown on desktop */}
-             <button className="hidden lg:flex absolute -left-20 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 items-center justify-center text-white hover:bg-[#DD654D] hover:border-[#DD654D] transition-all">
+             <button 
+               onClick={() => setPillarIndex((prev) => (prev - 1 + 4) % 4)}
+               className="hidden lg:flex absolute -left-20 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 items-center justify-center text-white hover:bg-[#DD654D] hover:border-[#DD654D] transition-all"
+             >
                 <ArrowLeft size={32} />
              </button>
-             <button className="hidden lg:flex absolute -right-20 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 items-center justify-center text-white hover:bg-[#DD654D] hover:border-[#DD654D] transition-all">
+             <button 
+               onClick={() => setPillarIndex((prev) => (prev + 1) % 4)}
+               className="hidden lg:flex absolute -right-20 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 items-center justify-center text-white hover:bg-[#DD654D] hover:border-[#DD654D] transition-all"
+             >
                 <ArrowRight size={32} />
              </button>
 
-             <motion.div 
-               variants={staggerContainer}
-               initial="hidden"
-               whileInView="show"
-               viewport={{ once: true }}
-               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 w-full"
-             >
-                <motion.div variants={fadeInUp} className="bg-[#DD654D] p-8 md:p-16 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group">
-                   <div className="relative z-10">
-                      <h2 className="text-white mb-6">Mentoring</h2>
-                      <p className="text-white/90">
-                         Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.
-                      </p>
-                   </div>
-                   <div className="absolute bottom-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-white/10 rounded-tl-full translate-x-8 md:translate-x-12 translate-y-8 md:translate-y-12 group-hover:translate-x-4 md:group-hover:translate-x-8 group-hover:translate-y-4 md:group-hover:translate-y-8 transition-transform duration-500"></div>
+             <div className="overflow-hidden px-4">
+                <motion.div 
+                   animate={{ x: `-${pillarIndex * (100 / (window.innerWidth < 768 ? 1 : 2))}%` }}
+                   transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                   className="flex gap-6 md:gap-10"
+                >
+                   {[
+                     { t: 'Mentoring', d: 'Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.' },
+                     { t: 'Coaching', d: 'Turning clarity into action. Coaching aligns intent with measurable results through structured guidance and consistent support.' },
+                     { t: 'Enterprise Examination', d: 'A structured space to examine the foundations behind decisions. Focused on surfacing patterns, clarifying judgment, and strengthening the anchors that shape authority and direction.' },
+                     { t: 'Conscious Presence', d: 'Strengthening awareness in leadership. Moving from confusion to clarity, from reaction to choice, and from pressure to steady presence.' }
+                   ].map((item, i) => (
+                      <div 
+                        key={i} 
+                        className="min-w-full md:min-w-[calc(50%-1.25rem)] bg-[#DD654D] p-8 md:p-16 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group h-full flex flex-col justify-center"
+                      >
+                         <div className="relative z-10">
+                            <h2 className="text-white mb-6 md:mb-8 !text-[2rem] md:!text-[3rem] font-bold">{item.t}</h2>
+                            <p className="text-white/90 text-lg md:text-xl leading-relaxed">
+                               {item.d}
+                            </p>
+                         </div>
+                         <div className="absolute bottom-0 right-0 w-32 md:w-48 h-32 md:h-48 bg-white/10 rounded-tl-full translate-x-12 md:translate-x-20 translate-y-12 md:translate-y-20 group-hover:translate-x-8 md:group-hover:translate-x-12 group-hover:translate-y-8 md:group-hover:translate-y-12 transition-transform duration-500"></div>
+                      </div>
+                   ))}
                 </motion.div>
+             </div>
 
-                <motion.div variants={fadeInUp} className="bg-[#DD654D] p-8 md:p-16 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden group">
-                   <div className="relative z-10">
-                      <h2 className="text-white mb-6">Coaching</h2>
-                      <p className="text-white/90">
-                         Turning clarity into action. Coaching aligns intent with measurable results through structured guidance and consistent support.
-                      </p>
-                   </div>
-                   <div className="absolute bottom-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-white/10 rounded-tl-full translate-x-8 md:translate-x-12 translate-y-8 md:translate-y-12 group-hover:translate-x-4 md:group-hover:translate-x-8 group-hover:translate-y-4 md:group-hover:translate-y-8 transition-transform duration-500"></div>
-                </motion.div>
-             </motion.div>
+             <div className="flex justify-center gap-3 mt-12">
+                {[0, 1, 2, 3].map((i) => (
+                  <button 
+                    key={i} 
+                    onClick={() => setPillarIndex(i)}
+                    className={`w-3 h-3 rounded-full transition-all ${pillarIndex === i ? 'bg-white w-8' : 'bg-white/20'}`}
+                  />
+                ))}
+             </div>
           </div>
         </div>
       </section>
