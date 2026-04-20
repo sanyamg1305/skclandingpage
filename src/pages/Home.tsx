@@ -69,15 +69,6 @@ export default function Home() {
     };
   }, []);
 
-  const stats = [
-    { label: 'Founders & CXOs Guided', value: '1000+', icon: <Users className="text-[#db644d]" size={32} /> },
-    { label: 'Years of Leadership Work', value: '25+', icon: <Award className="text-[#db644d]" size={32} /> },
-    { label: 'Cohorts Facilitated', value: '50+', icon: <BookOpen className="text-[#db644d]" size={32} /> },
-    { label: 'Hours of Mentoring', value: '20000+', icon: <Clock className="text-[#db644d]" size={32} /> },
-  ];
-
-  const programTraits = ['Once Every Year', 'Cohort-Based Model', 'Fully Offline Mode', 'Lifetime Alumni Access'];
-
   const coaches = [
     { name: 'Chaitanya Kumar', role: 'Lead Coach', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/nv3Ap78TRT.png' },
     { name: 'Avdhesh Sharma', role: 'Executive Mentor', img: 'https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/P3HAgwZXJD.png' },
@@ -109,47 +100,59 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* 1. HERO */}
-      <section className="relative min-h-[85vh] md:h-[90vh] flex items-center bg-[#282828] py-20 md:py-0">
+      <section className="relative min-h-[85vh] md:h-[95vh] flex items-center bg-[#1a1a1a] py-20 md:py-0">
         <div className="absolute inset-0 bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/xSDn9BZLCA.png)] bg-cover bg-center opacity-40"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <motion.h1 
+          <motion.div
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             className="text-white mb-10"
           >
-            <span className="block text-[3rem] md:text-[5.5rem] font-bold leading-[0.9] mb-4">Conscious</span>
-            <span className="block text-[#f26045] text-[1.25rem] md:text-[2rem] font-bold uppercase tracking-[0.2em] mb-2">Entrepreneurship</span>
-            <span className="block text-[#f26045] text-[1.1rem] md:text-[1.75rem] font-bold uppercase tracking-[0.1em] mb-10">Program™</span>
-            <span className="block text-white/90 text-base md:text-xl font-medium max-w-2xl leading-relaxed normal-case tracking-normal">
-              Built for leaders shaping businesses at scale. A cohort-based program for founders and CXOs ready to transform how they lead.
-            </span>
-          </motion.h1>
+            <h1 className="text-[3.5rem] md:text-[6rem] font-bold leading-[0.9] mb-8 tracking-tightest">
+              Conscious<br />
+              Entrepreneurship<br />
+              Program™
+            </h1>
+            <h2 className="text-[#f26045] text-lg md:text-2xl font-bold uppercase tracking-widest mb-6">
+              Built for leaders shaping businesses at scale
+            </h2>
+            <p className="text-white/80 text-base md:text-xl max-w-2xl leading-relaxed mb-10">
+              A cohort-based program for founders and CEOs ready to transform how they lead themselves, their teams, and their organisations.
+            </p>
+          </motion.div>
           <div className="flex flex-col sm:flex-row gap-6">
-            <a href="#contact" className="bg-[#f26045] text-white px-8 md:px-10 py-4 md:py-5 rounded-full hover:bg-white hover:text-black transition-all text-center">Apply Now</a>
+            <a href="#contact" className="bg-[#f26045] text-white px-10 py-5 rounded-full hover:bg-white hover:text-black transition-all text-center font-bold flex items-center justify-center gap-2">
+              Apply Now <ArrowRight size={20} />
+            </a>
           </div>
         </div>
       </section>
 
       {/* 2. PROGRAM LOOKS LIKE */}
-      <Section dark id="about" className="mesh-gradient !py-24 md:!py-40">
-        <h1 className="mb-12 md:mb-16">What the Program Looks Like</h1>
+      <Section dark id="about" className="!bg-[#222] !py-24 md:!py-32">
+        <h1 className="mb-12 md:mb-16 !text-[2.5rem] md:!text-[4rem]">What the Program Looks Like</h1>
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="flex flex-wrap gap-3 md:gap-4 mb-16 md:mb-20"
+          className="flex flex-wrap gap-4 md:gap-6 mb-16 md:mb-20"
         >
-          {programTraits.map((t, i) => (
+          {['Once Every Year', 'Cohort-Based Model', 'Fully Offline Mode'].map((t, i) => (
             <motion.div 
               key={i} 
               variants={fadeInUp}
-              className="px-6 md:px-8 py-3 md:py-4 rounded-full border border-white/20 bg-white/5 text-white/80 font-bold text-base md:text-lg"
+              className="px-8 py-4 rounded-xl border border-white/10 bg-white/5 text-white/90 font-bold text-lg md:text-xl"
             >
               {t}
             </motion.div>
           ))}
+          <motion.div 
+            variants={fadeInUp}
+            className="px-8 py-4 rounded-xl border border-white/10 bg-white/5 w-32 hidden md:block"
+          ></motion.div>
         </motion.div>
+
         <motion.div 
           variants={staggerContainer}
           initial="hidden"
@@ -158,143 +161,115 @@ export default function Home() {
           className="space-y-10 md:space-y-12 mb-16 md:mb-20"
         >
           {[
-            { t: 'Four 3-Day Immersive Workshops', d: 'Deep-dive sessions combining peer learning, expert mentoring, and meaningful conversations.' },
-            { t: 'Two Conscious Presence Practices', d: 'Guided reflection sessions building mental clarity and emotional steadiness under pressure.' },
-            { t: 'Three One-on-One Coaching Sessions', d: 'Personal guidance applying program learnings to your specific business challenges.' },
-            { t: 'Active Alumni Network', d: 'Ongoing peer connection, shared learning, and quarterly meetups.' }
+            { t: 'Four 3-Day Immersive Workshops:', d: 'Deep-dive sessions combining peer learning, expert mentoring, and meaningful conversations designed for transformational breakthroughs.' },
+            { t: 'Two Conscious Presence Practices:', d: 'Guided reflection sessions building mental clarity and emotional steadiness under pressure.' },
+            { t: 'Three One-on-One Coaching Sessions:', d: 'Personal guidance applying program learnings to your specific business challenges or business.' },
+            { t: 'Active Alumni Network:', d: 'Ongoing peer connection, shared learning, and quarterly meetups that extend the journey beyond the program.' }
           ].map((item, i) => (
             <motion.div 
               key={i} 
               variants={fadeInUp}
-              className="flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-8 items-start border-t border-white/10 pt-10 md:pt-12 first:border-0 first:pt-0"
+              className="flex flex-col md:grid md:grid-cols-12 gap-4 md:gap-8 items-start border-t border-white/10 pt-10 md:pt-12 first:border-0 first:pt-0"
             >
-               <div className="md:col-span-5"><h2 className="text-[#f26045]">{item.t}</h2></div>
-               <div className="md:col-span-7"><p className="text-gray-400">{item.d}</p></div>
+               <div className="md:col-span-4 lg:col-span-5"><h2 className="text-[#f26045] !text-[1.25rem] md:!text-[1.75rem]">{item.t}</h2></div>
+               <div className="md:col-span-8 lg:col-span-7"><p className="text-white/70 !text-[1rem] md:!text-[1.25rem]">{item.d}</p></div>
             </motion.div>
           ))}
         </motion.div>
+        
+        <div className="flex flex-wrap gap-4 md:gap-6 mt-12 md:mt-20">
+          <a href="#contact" className="bg-[#e5e7eb] text-black px-10 py-5 rounded-full hover:bg-white transition-all font-bold text-lg">Apply Now</a>
+          <button className="bg-[#f26045] text-white px-10 py-5 rounded-full hover:bg-white hover:text-black transition-all font-bold text-lg">Download Brochure</button>
+        </div>
       </Section>
 
       {/* 3. STATS */}
       <Section className="bg-white !py-24 md:!py-32">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12">
-          {stats.map((stat, i) => (
-            <div key={i} className="flex flex-col items-center text-center md:items-start md:text-left">
-              <div className="text-[2.5rem] md:text-[4.5rem] font-bold text-[#db644d] mb-2 leading-none">
+          {[
+            { label: 'Founders & CXOs Guided', value: '1000+' },
+            { label: 'Years of Leadership Work', value: '25+' },
+            { label: 'Cohorts Facilitated', value: '50+' },
+            { label: 'Hours of Mentoring & Coaching', value: '20000+' },
+          ].map((stat, i) => (
+            <div key={i} className="flex flex-col items-center text-center p-10 bg-white border border-gray-100 rounded-[2rem] shadow-[0_5px_40px_rgba(0,0,0,0.05)] hover:shadow-xl transition-all h-full">
+              <div className="text-[2.5rem] md:text-[4rem] font-bold text-[#db644d] mb-4 leading-none">
                 <CountUp value={stat.value} />
               </div>
-              <div className="text-[#01162c] uppercase tracking-[0.2em] text-[0.7rem] md:text-sm font-bold">{stat.label}</div>
-              <div className="mt-6 h-px w-full bg-gray-100"></div>
+              <div className="text-[#333] uppercase tracking-[0.1em] text-[0.7rem] md:text-sm font-bold leading-tight max-w-[120px]">{stat.label}</div>
             </div>
           ))}
         </div>
       </Section>
 
     {/* 4. SPECIALLY DESIGNED FOR */}
-      <Section className="bg-gray-50 !py-24 md:!py-32">
+      <Section className="bg-white !py-24 md:!py-32">
+        <div className="text-center mb-16 md:mb-24">
+           <h1 className="mb-8 md:mb-10 !text-[2.5rem] md:!text-[4rem] tracking-tight leading-tight">Specially Designed For</h1>
+           <p className="max-w-2xl mx-auto text-gray-500 font-medium">This program is built for leaders who carry real authority, manage complexity, and are ready to evolve how they lead.</p>
+        </div>
+        
         <div className="flex flex-col lg:flex-row gap-16 md:gap-20">
-          <div className="lg:w-1/2">
-             <h1 className="mb-8 md:mb-10 tracking-tight leading-tight uppercase">Specially <br />Designed For</h1>
-             <div className="space-y-10 md:space-y-12 mt-12 md:mt-16">
-                {['Founders at Scale', 'CXOs in Transition', 'Second-Generation Leaders'].map((t, i) => (
-                   <div key={i} className="border-l-4 border-[#f26045] pl-6 md:pl-8">
-                      <h2 className="mb-3 md:mb-4">{t}</h2>
-                      <p className="text-gray-400">Leaders navigating rapid growth and expanded authority.</p>
-                   </div>
-                ))}
-             </div>
+          <div className="lg:w-1/2 flex flex-col justify-center space-y-8 md:space-y-12">
+            {[
+              { t: 'Founders at Scale', d: 'Leaders navigating rapid growth where the organisation has outpaced the original site.' },
+              { t: 'CXOs in Transition', d: 'Executives stepping into expanded authority and responsibility.' },
+              { t: 'Second-Generation Leaders', d: 'Successors shaping direction beyond inheritance.' }
+            ].map((item, i) => (
+              <div key={i} className="border-l-4 border-[#f26045] pl-6 md:pl-8 group">
+                <h2 className="mb-3 md:mb-4 !text-[1.25rem] md:!text-[1.75rem] group-hover:text-[#f26045] transition-colors">{item.t}</h2>
+                <p className="text-gray-500 max-w-md">{item.d}</p>
+              </div>
+            ))}
           </div>
           <div className="lg:w-1/2 flex items-center">
-             <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/uTh39RbH18.png" alt="Leadership" className="rounded-[2.5rem] md:rounded-[4rem] w-full h-auto grayscale shadow-2xl" />
+             <img src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/uTh39RbH18.png" alt="Leadership" className="rounded-[2.5rem] md:rounded-[3rem] w-full h-auto grayscale shadow-2xl hover:grayscale-0 transition-all duration-1000" />
           </div>
         </div>
       </Section>
-      {/* 5. INSIDE THE PROGRAM - MOCKUP STYLE REFINED */}
-      <section className="relative py-24 md:py-32 lg:py-48 overflow-hidden mesh-gradient border-none">
-        <div className="absolute inset-0 z-0">
-           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2a2a2a_0%,_#1a1a1a_100%)] opacity-40"></div>
-        </div>
 
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-          <div className="flex justify-end mb-16 md:mb-24">
-             <motion.h1 
-               initial={{ opacity: 0, x: 50 }}
-               whileInView={{ opacity: 1, x: 0 }}
-               viewport={{ once: true }}
-               className="text-white text-right uppercase"
-             >
-                Inside The <br />Program
-             </motion.h1>
-          </div>
-
-          <div className="relative">
-             {/* Navigation - Hidden on mobile, shown on desktop */}
-             <button 
-               onClick={() => setPillarIndex((prev) => (prev - 1 + 4) % 4)}
-               className="hidden lg:flex absolute -left-20 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 items-center justify-center text-white hover:bg-[#DD654D] hover:border-[#DD654D] transition-all"
-             >
-                <ArrowLeft size={32} />
-             </button>
-             <button 
-               onClick={() => setPillarIndex((prev) => (prev + 1) % 4)}
-               className="hidden lg:flex absolute -right-20 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 items-center justify-center text-white hover:bg-[#DD654D] hover:border-[#DD654D] transition-all"
-             >
-                <ArrowRight size={32} />
-             </button>
-
-             <div className="overflow-hidden px-4">
-                <motion.div 
-                   animate={{ x: `-${pillarIndex * (100 / (window.innerWidth < 768 ? 2 : 3))}%` }}
-                   transition={{ type: "tween", duration: 0.8, ease: "easeInOut" }}
-                   className="flex items-stretch gap-4 md:gap-10"
-                >
-                   {[
-                     { t: 'Mentoring', d: 'Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.' },
-                     { t: 'Coaching', d: 'Turning clarity into action. Coaching aligns intent with measurable results through structured guidance and consistent support.' },
-                     { t: 'Enterprise Examination', d: 'A structured space to examine the foundations behind decisions. Focused on surfacing patterns, clarifying judgment, and strengthening the anchors that shape authority and direction.' },
-                     { t: 'Conscious Presence', d: 'Strengthening awareness in leadership. Moving from confusion to clarity, from reaction to choice, and from pressure to steady presence.' }
-                   ].map((item, i) => (
-                      <div 
-                        key={i} 
-                        className="min-w-[calc(50%-0.5rem)] md:min-w-[calc(33.333%-1.5rem)] bg-[#DD654D] p-6 md:p-12 rounded-[1.5rem] md:rounded-[2rem] shadow-2xl relative overflow-hidden group flex flex-col justify-center min-h-[240px] md:min-h-[380px]"
-                      >
-                         <div className="relative z-10">
-                            <h2 className="text-white mb-4 md:mb-6 !text-[1.1rem] md:!text-[1.75rem] font-bold">{item.t}</h2>
-                            <p className="text-white/90 text-xs md:text-lg leading-relaxed line-clamp-4 md:line-clamp-none">
-                               {item.d}
-                            </p>
-                         </div>
-                         <div className="absolute bottom-0 right-0 w-24 md:w-48 h-24 md:h-48 bg-white/10 rounded-tl-full translate-x-12 md:translate-x-20 translate-y-12 md:translate-y-20 group-hover:translate-x-8 md:group-hover:translate-x-12 group-hover:translate-y-8 md:group-hover:translate-y-12 transition-transform duration-500"></div>
-                      </div>
-                   ))}
-                </motion.div>
-             </div>
-
-             <div className="flex justify-center gap-3 mt-12">
-                {[0, 1, 2, 3].map((i) => (
-                  <button 
-                    key={i} 
-                    onClick={() => setPillarIndex(i)}
-                    className={`w-3 h-3 rounded-full transition-all ${pillarIndex === i ? 'bg-white w-8' : 'bg-white/20'}`}
-                  />
-                ))}
-             </div>
+      {/* 5. INSIDE THE PROGRAM */}
+      <section className="relative py-24 md:py-32 bg-[#222] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-right">
+          <h1 className="text-white uppercase mb-16 !text-[2.5rem] md:!text-[4rem]">Inside The <br />Program</h1>
+          
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 text-left">
+            {[
+              { t: 'Mentoring', d: 'Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.' },
+              { t: 'Coaching', d: 'Turning clarity into action. Coaching aligns intent with measurable results through structured guidance and consistent support.' }
+            ].map((item, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="bg-[#DD654D] p-10 md:p-14 rounded-[2rem] md:rounded-[3rem] shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[350px]"
+              >
+                <div className="relative z-10">
+                  <h2 className="text-white mb-6 md:mb-8 !text-[1.75rem] md:!text-[2.5rem] font-bold">{item.t}</h2>
+                  <p className="text-white/90 text-lg md:text-xl leading-relaxed">
+                    {item.d}
+                  </p>
+                </div>
+                <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 5.5 WHAT SHIFTS - MOCKUP STYLE REFINED */}
-      <section className="bg-[#111111] py-24 md:py-32 lg:py-48 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      {/* 5.5 WHAT SHIFTS */}
+      <section className="bg-[#1a1a1a] py-24 md:py-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
            <div className="grid lg:grid-cols-12 gap-16 md:gap-20 items-center">
               <div className="lg:col-span-7">
                   <motion.h1 
                    initial={{ opacity: 0, y: 30 }}
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
-                   className="text-white mb-12 md:mb-20"
+                   className="text-white mb-16 md:mb-20 !text-[2.5rem] md:!text-[4rem]"
                  >
-                    What Shifts When <br className="hidden md:block" />You Go Through CEP
+                    What Shifts When <br />You Go Through CEP
                  </motion.h1>
 
                  <motion.div 
@@ -305,16 +280,16 @@ export default function Home() {
                    className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8"
                  >
                     {[
-                      { t: 'Deep Immersive Learning', d: 'Four 3-day sessions focused on real breakthroughs, not just theory.', i: <BookOpen className="text-white/40 group-hover:text-white group-hover:scale-110 transition-all duration-500" size={36} /> },
-                      { t: 'Inner Clarity & Steadiness', d: 'Two practices designed to strengthen mental clarity and decision confidence.', i: <Zap className="text-white/40 group-hover:text-white group-hover:scale-110 transition-all duration-500" size={36} /> },
-                      { t: 'One-on-One Support', d: 'Three coaching sessions tailored to your specific business challenges.', i: <Users className="text-white/40 group-hover:text-white group-hover:scale-110 transition-all duration-500" size={36} /> },
-                      { t: 'Lifelong Peer Community', d: 'Stay connected with leaders who understand your journey.', i: <Shield className="text-white/40 group-hover:text-white group-hover:scale-110 transition-all duration-500" size={36} /> }
+                      { t: 'Deep Immersive Learning', d: 'Four 3-day sessions focused on real breakthroughs, not just theory.', i: <BookOpen className="text-white" size={32} /> },
+                      { t: 'Inner Clarity & Steadiness', d: 'Two practices designed to strengthen mental clarity and decision confidence.', i: <Zap className="text-white" size={32} /> },
+                      { t: 'One-on-One Support', d: 'Three coaching sessions tailored to your specific business challenges.', i: <Users className="text-white" size={32} /> },
+                      { t: 'Lifelong Peer Community', d: 'Stay connected with leaders who understand your journey.', i: <Shield className="text-white" size={32} /> }
                     ].map((card, i) => (
-                      <motion.div key={i} variants={fadeInUp} className="bg-[#DD654D] p-8 md:p-10 lg:p-12 rounded-[2rem] md:rounded-[2.5rem] h-full flex flex-col justify-between hover:translate-y-[-12px] hover:shadow-[0_20px_50px_rgba(221,101,77,0.3)] transition-all duration-500 group cursor-default">
-                         <div className="mb-6 md:mb-8">{card.i}</div>
+                      <motion.div key={i} variants={fadeInUp} className="bg-[#DD654D] p-10 rounded-[2rem] h-full flex flex-col justify-between hover:translate-y-[-8px] transition-all duration-300">
+                         <div className="mb-8">{card.i}</div>
                          <div>
-                            <h2 className="text-white mb-3 md:mb-4 group-hover:translate-x-2 transition-transform duration-500">{card.t}</h2>
-                            <p className="text-white/80">{card.d}</p>
+                            <h2 className="text-white mb-4 !text-[1.25rem] md:!text-[1.75rem] font-bold">{card.t}</h2>
+                            <p className="text-white/80 text-base md:text-lg">{card.d}</p>
                          </div>
                       </motion.div>
                     ))}
@@ -328,8 +303,7 @@ export default function Home() {
                 transition={{ duration: 1 }}
                 className="lg:col-span-5 relative mt-6 md:mt-12 lg:mt-0"
               >
-                 <div className="absolute inset-0 bg-[#DD654D] rounded-[2rem] md:rounded-[3rem] translate-x-2 translate-y-2 md:translate-x-6 md:translate-y-6 lg:translate-x-12 lg:translate-y-12"></div>
-                 <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/5]">
+                 <div className="relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl aspect-[4/5] border-8 border-[#DD654D]">
                     <img 
                       src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/SMDzAwOLT1.png" 
                       alt="CEP Session" 
@@ -341,44 +315,63 @@ export default function Home() {
          </div>
        </section>
 
-      {/* 6. CEP IS RIGHT FOR YOU - MOCKUP STYLE */}
-      <Section dark className="mesh-gradient !py-24 md:!py-32">
-        <div className="flex flex-col lg:flex-row gap-16 md:gap-20 items-center">
-          <div className="lg:w-1/2">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-white mb-6 md:mb-8 uppercase"
-            >
-              Is CEP Right <br />For You?
-            </motion.h1>
-            <p className="text-gray-400 max-w-xl">
-              This program is for founders who have already moved past the early survival phase and are now focused on building sustainable, scalable organisations.
-            </p>
-          </div>
-          <div className="lg:w-1/2 space-y-4 md:space-y-6">
-            {[
-              "You lead an organisation with 20+ members",
-              "You are facing the pressures of scaling leadership",
-              "You want to shift from instruction to empowerment",
-              "You are ready to commit to deep personal growth"
-            ].map((text, i) => (
-              <motion.div 
-                key={i} 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+
+      {/* 6. CEP IS RIGHT FOR YOU */}
+      <section className="bg-[#222] py-24 md:py-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col lg:flex-row gap-16 md:gap-20 items-center">
+            <div className="lg:w-1/2">
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="flex items-center gap-5 md:gap-6 p-6 md:p-8 bg-white/5 rounded-[1.5rem] md:rounded-3xl border border-white/10 hover:bg-[#DD654D]/10 transition-all cursor-default group"
+                className="text-white mb-12 !text-[2rem] md:!text-[3.5rem] leading-tight"
               >
-                <CheckCircle2 className="text-[#DD654D] group-hover:scale-110 transition-transform shrink-0" size={28} />
-                <span className="font-bold flex-1">{text}</span>
-              </motion.div>
-            ))}
+                CEP Is Right for You If <br />This Feels Familiar
+              </motion.h1>
+              
+              <div className="space-y-6 md:space-y-8 mb-12">
+                {[
+                  "Your decisions now carry more weight than before.",
+                  "Growth has changed your role faster than expected.",
+                  "You are operating efficiently, but not always by deliberate design.",
+                  "The organization depends more on you than it should."
+                ].map((text, i) => (
+                  <motion.div 
+                    key={i} 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-start gap-6 text-white/90"
+                  >
+                    <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#f26045] flex items-center justify-center text-white font-bold text-sm">{i + 1}</span>
+                    <p className="text-lg md:text-xl font-medium">{text}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-4 md:gap-6">
+                <a href="#contact" className="bg-white text-black px-10 py-4 rounded-full font-bold text-lg hover:bg-[#f26045] hover:text-white transition-all">Apply Now</a>
+                <button className="bg-[#f26045] text-white px-10 py-4 rounded-full font-bold text-lg border border-[#f26045] hover:bg-transparent transition-all">Contact Us</button>
+              </div>
+            </div>
+
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="lg:w-1/2"
+            >
+              <img 
+                src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/pTz1xRTz5a.png" 
+                alt="Leadership Reflection" 
+                className="rounded-[2.5rem] md:rounded-[3rem] shadow-2xl w-full h-auto"
+              />
+            </motion.div>
           </div>
         </div>
-      </Section>
+      </section>
 
 
       {/* 7. WHAT YOU GRADUATE WITH AS A LEADER */}
@@ -619,7 +612,7 @@ export default function Home() {
         </div>
       </Section>
       {/* 10. FAQs - DARK SPLIT STYLE */}
-      <Section dark id="faqs" className="mesh-gradient !py-24 md:!py-32 overflow-hidden">
+      <Section dark id="faqs" className="!bg-[#222] !py-24 md:!py-32 overflow-hidden">
         <div className="lg:grid lg:grid-cols-12 gap-12 md:gap-20">
            <div className="lg:col-span-4 self-start mb-12 md:mb-0">
               <h1 className="opacity-10 text-white uppercase !text-[4rem] md:!text-[8rem]">FAQs</h1>
@@ -712,7 +705,7 @@ export default function Home() {
                className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 overflow-hidden"
              >
                 {['KEa1R2q9Oe', 'Nm1MLGKF3A', 'aX2JGytTv3', 'eTMHXoGtkJ', '5dGtP4QHLh', 'QKq988ujHM'].map((img, i) => (
-                  <motion.div 
+                   <motion.div 
                     key={i} 
                     variants={fadeInUp}
                     className="rounded-xl md:rounded-3xl overflow-hidden aspect-[4/3] bg-gray-100 shadow-md md:shadow-lg"
@@ -725,7 +718,7 @@ export default function Home() {
                   </motion.div>
                 ))}
              </motion.div>
-  
+   
         </div>
       </Section>
 
