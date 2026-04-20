@@ -289,7 +289,7 @@ export default function Home() {
                     <img 
                       src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/SMDzAwOLT1.png" 
                       alt="CEP Session" 
-                      className="w-full h-full object-cover" 
+                      className="w-full h-full object-cover object-top" 
                     />
                  </div>
               </motion.div>
@@ -487,7 +487,7 @@ export default function Home() {
             <img 
               src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/dd8bUjO8Fj.png" 
               alt="Leader" 
-              className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+              className="absolute inset-0 w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-1000"
             />
           </div>
         </div>
@@ -516,7 +516,7 @@ export default function Home() {
               className="group bg-white rounded-2xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl transition-all duration-500 border border-gray-100"
             >
                <div className="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
-                  <img src={c.img} alt={c.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                </div>
                <div className="p-6 md:p-8">
                   <h2 className="mb-2 text-gray-900">{c.name}</h2>
@@ -552,7 +552,7 @@ export default function Home() {
               <motion.img 
                 src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} 
                 alt="Cohort" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" 
+                className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-1000" 
               />
             </motion.div>
           ))}
@@ -565,7 +565,7 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {testimonials.map((t, i) => (
             <div key={i} className="flex flex-col md:flex-row gap-6 md:gap-10 p-6 md:p-12 bg-gray-50 rounded-3xl md:rounded-[4rem] items-start hover:shadow-2xl transition-all duration-500 overflow-hidden">
-               <img src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${t.i}.png`} className="w-20 h-20 md:w-32 md:h-32 rounded-xl md:rounded-[2rem] object-cover shadow-lg md:shadow-xl shrink-0" alt={t.n} />
+               <img src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${t.i}.png`} className="w-24 h-24 md:w-32 md:h-32 rounded-xl md:rounded-[2rem] object-cover object-top shadow-lg md:shadow-xl shrink-0" alt={t.n} />
                <div>
                   <Quote className="text-[#f26045] mb-4 md:mb-6 opacity-30" size={40} />
                   <p className="italic mb-6 md:mb-8 text-[#01162c]">"{t.q}"</p>
@@ -659,7 +659,7 @@ export default function Home() {
                     <motion.img 
                       src={`https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/${img}.png`} 
                       alt="Gallery" 
-                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+                      className="w-full h-full object-cover object-top hover:scale-110 transition-transform duration-700" 
                     />
                   </motion.div>
                 ))}
