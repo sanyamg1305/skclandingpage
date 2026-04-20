@@ -528,11 +528,11 @@ export default function Home() {
             </motion.div>
           </div>
           
-          <div className="relative h-full min-h-[400px] md:min-h-[600px]">
+          <div className="relative h-full min-h-[400px] md:min-h-[600px] bg-white rounded-[2.5rem] md:rounded-[4rem] overflow-hidden shadow-2xl">
             <img 
               src="https://codia-f2c.s3.us-west-1.amazonaws.com/image/2026-04-15/dd8bUjO8Fj.png" 
               alt="Leader" 
-              className="rounded-[2.5rem] md:rounded-[4rem] w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000 shadow-2xl"
+              className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000"
             />
           </div>
         </div>
@@ -715,14 +715,6 @@ export default function Home() {
              </div>
           </div>
           
-          <div className="relative max-w-6xl mx-auto group">
-             {/* Navigation - Hidden on mobile */}
-             <button className="hidden lg:flex absolute -left-12 lg:-left-24 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white shadow-2xl items-center justify-center text-[#DD654D] hover:scale-110 transition-all">
-                <ArrowLeft size={32} />
-             </button>
-             <button className="hidden lg:flex absolute -right-12 lg:-right-24 top-1/2 -translate-y-1/2 z-20 w-16 h-16 rounded-full bg-white shadow-2xl items-center justify-center text-[#DD654D] hover:scale-110 transition-all">
-                <ArrowRight size={32} />
-             </button>
  
              <motion.div 
                variants={staggerContainer}
