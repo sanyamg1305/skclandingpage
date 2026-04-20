@@ -75,6 +75,13 @@ export default function Home() {
     { n: 'Tejas Jhaveri', r: 'Founder and CEO, Myntmore', q: 'I would recommend this highly to anyone, it\'s a game changer for anyone struggling with their business or their personal life.', i: 'PkhvDRjkqM' }
   ];
 
+  const videoTestimonials = [
+    { name: 'Abhinav Churiwal', role: 'Group Managing Director, Manglam Groups', url: 'https://www.youtube.com/embed/NMwtv7bVA48' },
+    { name: 'Manikk Guptha', role: 'Partner - Havi Design, LLP', url: 'https://www.youtube.com/embed/1q1KE56Pkzw' },
+    { name: 'Linda Lee', role: 'Director - Brand Strategy and Creative Leadership', url: 'https://www.youtube.com/embed/1q1KE56Pkzw' },
+    { name: 'Shweta Kapur', role: 'Founder and Creative Director, 431-88', url: 'https://www.instagram.com/reel/C-B8ct2SmxW/embed' }
+  ];
+
   const faqs = [
     { q: 'What actually happens during the CEP sessions?', a: 'Sessions involve guided discussions, reflection exercises, and practical tools that participants apply to their own organisations. The focus is on examining leadership decisions and strengthening organisational thinking.' },
     { q: 'How much time will I need to commit?', a: 'CEP runs through structured sessions over several months. Participants may also spend time reflecting on their leadership decisions and applying ideas between sessions.' },
@@ -632,11 +639,39 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="mb-6 md:mb-8 uppercase text-[#DD654D]"
               >
-                Event Gallery
+                Event Gallery & Testimonials
               </motion.h1>
              <p className="text-gray-600 max-w-3xl mx-auto font-semibold">
-                Snapshots of transformation from our deep-dive workshops.
+                Snapshots of transformation and voices from our cohorts.
              </p>
+          </div>
+
+          <div className="mb-20">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                {videoTestimonials.map((v, i) => (
+                   <motion.div 
+                     key={i}
+                     variants={fadeInUp}
+                     initial="hidden"
+                     whileInView="show"
+                     viewport={{ once: true }}
+                     className="bg-gray-50 rounded-[2rem] overflow-hidden shadow-xl border border-gray-100 flex flex-col h-full"
+                   >
+                      <div className="aspect-video w-full bg-black leading-none">
+                         <iframe 
+                           src={v.url} 
+                           className="w-full h-full border-none" 
+                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                           allowFullScreen
+                         ></iframe>
+                      </div>
+                      <div className="p-8 md:p-10 flex-1">
+                         <h2 className="mb-2 text-[#01162c]">{v.name}</h2>
+                         <p className="text-[#f26045] text-base md:text-lg uppercase tracking-wider font-bold">{v.role}</p>
+                      </div>
+                   </motion.div>
+                ))}
+             </div>
           </div>
           
           <div className="relative max-w-6xl mx-auto group">
