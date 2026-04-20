@@ -246,7 +246,7 @@ export default function Home() {
                 <motion.div 
                    animate={{ x: `-${pillarIndex * (100 / (window.innerWidth < 768 ? 2 : 2))}%` }}
                    transition={{ type: "tween", duration: 0.8, ease: "easeInOut" }}
-                   className="flex gap-4 md:gap-10"
+                   className="flex items-stretch gap-4 md:gap-10"
                 >
                    {[
                      { t: 'Mentoring', d: 'Grounded guidance drawn from lived experience. Mentoring helps founders see clearly, question assumptions, and strengthen their judgment through practical wisdom.' },
@@ -256,7 +256,7 @@ export default function Home() {
                    ].map((item, i) => (
                       <div 
                         key={i} 
-                        className="min-w-[calc(50%-0.5rem)] md:min-w-[calc(50%-1.25rem)] bg-[#DD654D] p-6 md:p-16 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group h-full flex flex-col justify-center"
+                        className="min-w-[calc(50%-0.5rem)] md:min-w-[calc(50%-1.25rem)] bg-[#DD654D] p-6 md:p-16 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl relative overflow-hidden group flex flex-col justify-center min-h-[320px] md:min-h-[480px]"
                       >
                          <div className="relative z-10">
                             <h2 className="text-white mb-4 md:mb-8 !text-[1.25rem] md:!text-[3rem] font-bold">{item.t}</h2>
@@ -550,12 +550,12 @@ export default function Home() {
           <motion.div 
             animate={{ x: `-${coachIndex * (100 / (window.innerWidth < 768 ? 2 : 3))}%` }}
             transition={{ type: "tween", duration: 0.8, ease: "easeInOut" }}
-            className="flex gap-4 md:gap-8"
+            className="flex items-stretch gap-4 md:gap-8"
           >
             {coaches.map((c, i) => (
               <div 
                 key={i} 
-                className="min-w-[calc(50%-0.5rem)] md:min-w-[calc(33.333%-1.5rem)] group bg-white rounded-2xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl transition-all duration-500 border border-gray-100"
+                className="min-w-[calc(50%-0.5rem)] md:min-w-[calc(33.333%-1.5rem)] group bg-white rounded-2xl overflow-hidden shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col"
               >
                  <div className="aspect-[4/5] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
                     <img src={c.img} alt={c.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
