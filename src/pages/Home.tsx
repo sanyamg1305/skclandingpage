@@ -337,21 +337,9 @@ export default function Home() {
                     />
                  </div>
               </motion.div>
-           </div>
-        </div>
-      </section>
-
-
-                
-
-
-
-
-
-
-
-                
-
+            </div>
+         </div>
+       </section>
 
       {/* 6. CEP IS RIGHT FOR YOU - MOCKUP STYLE */}
       <Section dark className="mesh-gradient !py-24 md:!py-32">
@@ -737,9 +725,8 @@ export default function Home() {
                   </motion.div>
                 ))}
              </motion.div>
-          </div>
   
-          <div className="flex justify-center mt-16 md:mt-24">
+           <div className="flex justify-center mt-16 md:mt-24">
              <button className="px-10 py-4 md:px-16 md:py-5 bg-white text-[#DD654D] hover:bg-black hover:text-white rounded-full font-black text-xl md:text-2xl transition-all shadow-2xl">
                 See More
              </button>
